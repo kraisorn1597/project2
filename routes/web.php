@@ -18,3 +18,15 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/admin/home', function () {
+    return view('backend.home');
+});
+
+Route::get('/admin/user', function () {
+    return view('backend.show.user');
+});
+
+Route::get('/login', function () {
+    return view('backend.login.login');
+});
