@@ -9,3 +9,40 @@
 .interval-top-about{
     margin-top: 60px;
 }
+
+.colorwhite {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+.right {
+    text-align: right;
+    font-family: 'Prompt', sans-serif;
+}
+.letter-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+.topic {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 60px;
+}
+.topic1 {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 35px;
+}
+
+.login {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 20px;
+}
+.button {
+    transition: none;
+    font-size: 40px;
+}
