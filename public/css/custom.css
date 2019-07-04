@@ -15,6 +15,12 @@
     color: white;
     font-family: 'Prompt', sans-serif;
 }
+.colorblack {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+}
+
 .right {
     text-align: right;
     font-family: 'Prompt', sans-serif;
@@ -29,11 +35,31 @@
     font-family: 'Prompt', sans-serif;
     font-size: 60px;
 }
-.topic1 {
+.topic2 {
     text-align: left;
     color: white;
     font-family: 'Prompt', sans-serif;
     font-size: 35px;
+}
+.topic3 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 60px;
+}
+
+.topic4 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 25px;
+}
+
+.topic5 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px;
 }
 
 .login {

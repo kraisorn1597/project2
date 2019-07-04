@@ -22,6 +22,12 @@ Route::get('/home', function () {
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/index2', function () {
+    return view('index2');
+});
+Route::get('/index3', function () {
+    return view('index3');
+});
 
 
 Route::get('/admin/home', function () {
@@ -46,3 +52,7 @@ Route::get('/admin/test', function () {
 Route::get('/login', function () {
     return view('backend.login.login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

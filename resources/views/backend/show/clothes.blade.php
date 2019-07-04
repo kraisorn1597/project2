@@ -12,7 +12,7 @@
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="username" class="col-form-label text-md-right">{{ __('ชื่อ :') }}</label>
+                                    <label for="username" class="col-form-label text-md-right">{{ __('ชื่อประเภทเสื้อผ้า :') }}</label>
                                     <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                                            name="username" value="{{ old('username') }}" required autofocus>
 
@@ -23,7 +23,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="username" class="col-form-label text-md-right">{{ __('ราคา :') }}</label>
+                                    <label for="username" class="col-form-label text-md-right">{{ __('ราคา/ชิ้น :') }}</label>
                                     <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                                            name="username" value="{{ old('username') }}" required autofocus>
 

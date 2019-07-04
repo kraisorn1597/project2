@@ -51,13 +51,13 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>กลุ่มเสื้อผ้า</span>
         </a>
-        <div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">ประเภทเสื้อ</a>
+        {{--<div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+            {{--<div class="bg-white py-2 collapse-inner rounded">--}}
+                {{--<a class="collapse-item" href="#">ประเภทเสื้อ</a>--}}
                 {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
                 {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
     </li>
 
     <li class="nav-item">
@@ -83,7 +83,8 @@
         </a>
         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">รายงานการใช้บริการของลูกค้า</a>
+                <a class="collapse-item" href="#">รายงานการใช้บริการรายวัน</a>
+                <a class="collapse-item" href="#">รายงานการใช้บริการรายเดือน</a>
                 {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
                 {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
             </div>
@@ -96,13 +97,13 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>การแจ้งเตือน</span>
         </a>
-        <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">แจ้งเตือนจากลูกค้า</a>
+        {{--<div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionSidebar">--}}
+            {{--<div class="bg-white py-2 collapse-inner rounded">--}}
+                {{--<a class="collapse-item" href="#">แจ้งเตือนจากลูกค้า</a>--}}
                 {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
                 {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
     </li>
 
     {{--<!-- Nav Item - Utilities Collapse Menu -->--}}
