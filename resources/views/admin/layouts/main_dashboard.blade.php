@@ -10,15 +10,15 @@
     </head>
     <body id="page-top">
     <div id="wrapper">
-        @include('backend.partials.sidebar_dashboard')
+        @include('admin.partials.sidebar_dashboard')
         <div  id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('backend.partials.navbar_dashboard')
+                @include('admin.partials.navbar_dashboard')
                 <section>
                     @yield('content')
                 </section>
             </div>
-            @include('backend.partials.footer_dashboard')
+            @include('admin.partials.footer_dashboard')
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
@@ -38,24 +38,20 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="dropdown-item" href="#"
-                    {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                    <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 
-                    <form id="logout-form" action="#" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                    {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                        {{--@csrf--}}
-                    {{--</form>--}}
                 </div>
             </div>
         </div>
     </div>
-    @include('backend.layouts.script')
+    @include('admin.layouts.script')
     @stack('script')
     </body>
 </html>
