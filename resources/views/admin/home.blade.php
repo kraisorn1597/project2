@@ -15,7 +15,7 @@
                             </div>
                         @endif
                         <label>สวัสดีคุณ :</label>
-                        {{--{{ Auth::user()->first_name." ".Auth::user()->last_name }}<br>--}}
+                        {{ Auth::user()->first_name." ".Auth::user()->last_name }}<br>
                     </div>
                 </div>
             </div>

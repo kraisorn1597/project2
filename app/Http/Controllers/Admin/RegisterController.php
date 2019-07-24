@@ -36,7 +36,7 @@ class RegisterController extends Controller
         return view('admin.register' ,compact('roles'));
     }
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'admin/home';
 
     /**
      * Create a new controller instance.
@@ -57,16 +57,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:50', 'unique:users'],
+            'username' => ['required', 'string', 'max:50', 'unique:admin'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admin'],
             'first_name' => ['required', 'string', 'max:50'],
             'last_name' => ['required', 'string', 'max:50'],
+            'gender' => ['required', 'string', 'max:50'],
             'id_card' => ['required','string','max:20'],
             'tel' => ['required','string','max:20'],
             'birthday' => ['required'],
             'address' => ['required','string','max:255'],
-            'salary' => ['nullable','string','max:100'],
+//            'salary' => ['nullable','string','max:100'],
         ]);
     }
 
@@ -91,7 +92,7 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
             'address' => $data['address'],
             'role_id' => $data['role_id'],
-            'salary' => $data['salary'],
+//            'salary' => $data['salary'],
         ]);
     }
 }

@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -14,9 +14,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+        <a class="nav-link" href="{{ route('admin.index') }}">
+            <i class="fas fa-home"></i>
+            <span>Home</span></a>
     </li>
 
     <!-- Divider -->
@@ -31,16 +31,14 @@
     <li class="nav-item ">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
            aria-controls="collapseone">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-users"></i>
             <span>ข้อมูลสมาชิก</span>
         </a>
         <div id="collapseone" class="collapse" aria-labelledby="headingone" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="bg-white py-2 collapse-inner rounded ">
                 {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                <a class="collapse-item" href="#">ข้อมูลพนักงาน</a>
-                <a class="collapse-item" href="#">ข้อมูลสมาชิก</a>
-                {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
-                {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
+                <a class="collapse-item fas fa-user-tie" href="{{ route('admin.employee.index') }}">  ข้อมูลพนักงาน</a>
+                <a class="collapse-item fas fa-user" href="{{ route('admin.users.index') }}">  ข้อมูลสมาชิก</a>
             </div>
         </div>
     </li>
@@ -50,6 +48,7 @@
            aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>กลุ่มเสื้อผ้า</span>
+            {{--<a href="{{ route('admin') }}"></a>--}}
         </a>
         {{--<div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
             {{--<div class="bg-white py-2 collapse-inner rounded">--}}

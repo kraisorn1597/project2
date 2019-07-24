@@ -86,8 +86,8 @@
                             <label for="gender" class="text-md-right">  Gender :</label>
 
                             <select name="gender" class="form-control col-md-1" >
-                                <option value="0">ช</option>
-                                <option value="1">ญ</option>
+                                <option value="ช">ช</option>
+                                <option value="ญ">ญ</option>
                             </select>
                         </div>
                         <div class="form-row">
