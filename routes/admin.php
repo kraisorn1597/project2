@@ -4,7 +4,7 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
 ],function (){
-    Route::get('/home', 'AdminController@index')->name('index');
+    Route::get('/home', 'Backend\AdminController@index')->name('index');
     Route::post('/login', 'Admin\LoginController@login');
     Route::get('/login', 'Admin\LoginController@showLoginForm')->name('login');
 //    Route::post('/logout', 'Admin\LoginController@logout')->name('logout');
@@ -19,35 +19,38 @@ Route::group([
         'prefix' => 'employee',
         'as' => 'employee.'
     ], function (){
-        Route::get('/index', 'EmployeeController@index')->name('index');
-        Route::get('/create', 'EmployeeController@create')->name('create');
-        Route::post('/create', 'EmployeeController@store')->name('store');
-        Route::get('{id}/employee/edit', 'EmployeeController@edit')->name('edit');
-        Route::post('{id}/employee/update', 'EmployeeController@update')->name('update');
-        Route::delete('{id}/employee/delete', 'EmployeeController@destroy')->name('delete');
+        Route::get('/index', 'Backend\EmployeeController@index')->name('index');
+        Route::get('/create', 'Backend\EmployeeController@create')->name('create');
+        Route::post('/create', 'Backend\EmployeeController@store')->name('store');
+        Route::get('{id}/employee/edit', 'Backend\EmployeeController@edit')->name('edit');
+        Route::post('{id}/employee/update', 'Backend\EmployeeController@update')->name('update');
+        Route::delete('{id}/employee/delete', 'Backend\EmployeeController@destroy')->name('delete');
     });
 
     Route::group([
         'prefix' => 'users',
         'as' => 'users.'
     ], function (){
-        Route::get('/index', 'UserController@index')->name('index');
-        Route::get('/create', 'UserController@create')->name('create');
-        Route::post('/create', 'UserController@store')->name('store');
-        Route::get('{id}/users/edit', 'UserController@edit')->name('edit');
-        Route::post('{id}/users/update', 'UserController@update')->name('update');
-        Route::delete('{id}/users/delete', 'UserController@destroy')->name('delete');
+        Route::get('/index', 'Backend\UserController@index')->name('index');
+        Route::get('/create', 'Backend\UserController@create')->name('create');
+        Route::post('/create', 'Backend\UserController@store')->name('store');
+        Route::get('{id}/users/edit', 'Backend\UserController@edit')->name('edit');
+        Route::post('{id}/users/update', 'Backend\UserController@update')->name('update');
+        Route::delete('{id}/users/delete', 'Backend\UserController@destroy')->name('delete');
+    });
+    Route::group([
+        'prefix' => 'clothes',
+        'as' => 'clothes.'
+    ], function (){
+        Route::get('/index', 'Backend\ClothesController@index')->name('index');
+        Route::get('/create', 'Backend\ClothesController@create')->name('create');
+        Route::post('/create', 'Backend\ClothesController@store')->name('store');
+        Route::get('{id}/clothes/edit', 'Backend\ClothesController@edit')->name('edit');
+        Route::post('{id}/clothes/update', 'Backend\ClothesController@update')->name('update');
+        Route::delete('{id}/clothes/delete', 'Backend\ClothesController@destroy')->name('delete');
     });
 });
 
-
-Route::get('/admin/user', function () {
-    return view('admin.show.user');
-});
-
-Route::get('/admin/clothes', function () {
-    return view('admin.show.clothes');
-});
 
 Route::get('/admin/service', function () {
     return view('admin.show.service');

@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="nav-item {{ Route::currentRouteName() == 'admin.index' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('admin.index') }}">
             <i class="fas fa-home"></i>
             <span>Home</span></a>
@@ -28,27 +28,34 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item ">
+    <li class="nav-item {{ Route::currentRouteName() == 'admin.employee.index'|| Route::currentRouteName() == 'admin.users.index' ||
+    Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
+    Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ? 'active' : null }} ">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
            aria-controls="collapseone">
             <i class="fas fa-users"></i>
             <span>ข้อมูลสมาชิก</span>
         </a>
-        <div id="collapseone" class="collapse" aria-labelledby="headingone" data-parent="#accordionSidebar">
+        <div id="collapseone" class="collapse {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.users.index'||
+          Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
+          Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ? 'show' : null  }}"
+             aria-labelledby="headingone" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded ">
                 {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                <a class="collapse-item fas fa-user-tie" href="{{ route('admin.employee.index') }}">  ข้อมูลพนักงาน</a>
-                <a class="collapse-item fas fa-user" href="{{ route('admin.users.index') }}">  ข้อมูลสมาชิก</a>
+                <a class="collapse-item fas fa-user-tie {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.employee.create' ||
+                 Route::currentRouteName() == 'admin.employee.edit' ? 'active' : null  }}" href="{{ route('admin.employee.index') }}">  ข้อมูลพนักงาน</a>
+                <a class="collapse-item fas fa-user {{ Route::currentRouteName() == 'admin.users.index' || Route::currentRouteName() == 'admin.users.create' ||
+                 Route::currentRouteName() == 'admin.users.edit' ? 'active' : null  }}" href="{{ route('admin.users.index') }}">  ข้อมูลสมาชิก</a>
             </div>
         </div>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
+    <li class="nav-item {{ Route::currentRouteName() == 'admin.clothes.index' ? 'active' : null }}">
+        <a class="nav-link" href=" {{ route('admin.clothes.index') }}" data-toggle="collapse show" data-target="#collapsetwo" aria-expanded="true"
            aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>กลุ่มเสื้อผ้า</span>
-            {{--<a href="{{ route('admin') }}"></a>--}}
+{{--            <a href="{{ route('admin.clothes.index') }}"></a>--}}
         </a>
         {{--<div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
             {{--<div class="bg-white py-2 collapse-inner rounded">--}}

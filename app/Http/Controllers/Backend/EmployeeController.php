@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use App\Admin;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
 use App\Role;
 use Illuminate\Http\Request;
@@ -159,8 +160,9 @@ class EmployeeController extends Controller
     {
 //        dd($id);
         $admin = Admin::find($id);
-
-        $admin->delete();
+//        forceDelete
+//        $admin->delete();
+        $admin->forcedelete();
 
 //        Storage::delete();
 

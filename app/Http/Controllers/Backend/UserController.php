@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -90,7 +91,7 @@ class UserController extends Controller
     {
         $admin = User::find($id);
 
-        $admin->delete();
+        $admin->forcedelete();
 
 //        Storage::delete();
 
