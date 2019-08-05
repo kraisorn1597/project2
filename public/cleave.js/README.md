@@ -18,6 +18,7 @@ Cleave.js has a simple purpose: to help you format input text content automatica
 - CommonJS / AMD mode
 - ReactJS component
 - AngularJS directive (1.x)
+- ES Module
 
 **TL;DR** [the demo page](http://nosir.github.io/cleave.js/)
 
@@ -64,7 +65,7 @@ var cleave = new Cleave('.input-phone', {
 });
 ```
 
-> `.input-element` here is a unique DOM element. If you want to apply Cleave for multiple elements, you need to give different css selectors and apply to each of them
+> `.input-element` here is a unique DOM element. If you want to apply Cleave for multiple elements, you need to give different CSS selectors and apply to each of them, effectively, you might want to create individual instance by a loop, e.g. [loop  solution](https://github.com/nosir/cleave.js/issues/138#issuecomment-268024840)
 
 More examples: [the demo page](http://nosir.github.io/cleave.js/)
 
@@ -82,6 +83,17 @@ var cleave = new Cleave(...)
 require(['cleave.js/dist/cleave.min', 'cleave.js/dist/addons/cleave-phone.{country}'], function (Cleave) {
     var cleave = new Cleave(...)
 });
+```
+
+#### ES Module
+```js
+// Rollup, WebPack
+import Cleave from 'cleave.js';
+var cleave = new Cleave(...)
+
+// Browser
+import Cleave from 'node_modules/cleave.js/dist/cleave-esm.min.js';
+var cleave = new Cleave(...)
 ```
 
 #### TypeScript
@@ -199,6 +211,9 @@ Then easily you can apply `cleave` directive to `input` field:
 ```
 
 More usage in documentation: [Angular directive usage](https://github.com/nosir/cleave.js/blob/master/doc/angularjs-directive-usage.md)
+
+## jQuery fn usage
+Please check [here](https://github.com/nosir/cleave.js/issues/341)
 
 ## Playground
 

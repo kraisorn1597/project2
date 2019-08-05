@@ -26,11 +26,14 @@ var DefaultProperties = {
         // time
         target.time = !!opts.time;
         target.timePattern = opts.timePattern || ['h', 'm', 's'];
+        target.timeFormat = opts.timeFormat || '24';
         target.timeFormatter = {};
 
         // date
         target.date = !!opts.date;
         target.datePattern = opts.datePattern || ['d', 'm', 'Y'];
+        target.dateMin = opts.dateMin || '';
+        target.dateMax = opts.dateMax || '';
         target.dateFormatter = {};
 
         // numeral
@@ -41,6 +44,7 @@ var DefaultProperties = {
         target.numeralThousandsGroupStyle = opts.numeralThousandsGroupStyle || 'thousand';
         target.numeralPositiveOnly = !!opts.numeralPositiveOnly;
         target.stripLeadingZeroes = opts.stripLeadingZeroes !== false;
+        target.signBeforePrefix = !!opts.signBeforePrefix;
 
         // others
         target.numericOnly = target.creditCard || target.date || !!opts.numericOnly;

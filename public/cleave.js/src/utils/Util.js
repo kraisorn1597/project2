@@ -8,18 +8,21 @@ var Util = {
         return value.replace(re, '');
     },
 
-    isDelimiter: function (letter, delimiter, delimiters) {
+    getPostDelimiter: function (value, delimiter, delimiters) {
         // single delimiter
         if (delimiters.length === 0) {
-            return letter === delimiter;
+            return value.slice(-delimiter.length) === delimiter ? delimiter : '';
         }
 
         // multiple delimiters
-        return delimiters.some(function (current) {
-            if (letter === current) {
-                return true;
+        var matchedDelimiter = '';
+        delimiters.forEach(function (current) {
+            if (value.slice(-current.length) === current) {
+                matchedDelimiter = current;
             }
         });
+
+        return matchedDelimiter;
     },
 
     getDelimiterREByDelimiter: function (delimiter) {
@@ -58,7 +61,9 @@ var Util = {
 
         // multiple delimiters
         delimiters.forEach(function (current) {
-            value = value.replace(owner.getDelimiterREByDelimiter(current), '');
+            current.split('').forEach(function (letter) {
+                value = value.replace(owner.getDelimiterREByDelimiter(letter), '');
+            });
         });
 
         return value;
@@ -74,22 +79,35 @@ var Util = {
         }, 0);
     },
 
-    // strip value by prefix length
-    // for prefix: PRE
-    // (PRE123, 3) -> 123
-    // (PR123, 3) -> 23 this happens when user hits backspace in front of "PRE"
-    getPrefixStrippedValue: function (value, prefix, prefixLength, prevValue) {
-        if (value.slice(0, prefixLength) !== prefix) {
-
-            // Check whether if it is a deletion
-            if (value.length < prevValue.length) {
-                value = value.length > prefixLength ? prevValue : prefix;
-            } else {
-                var diffIndex = this.getFirstDiffIndex(prefix, value.slice(0, prefixLength));
-                value = prefix + value.slice(diffIndex, diffIndex + 1) + value.slice(prefixLength + 1);
-            }
+    // strip prefix
+    // Before type  |   After type    |     Return value
+    // PEFIX-...    |   PEFIX-...     |     ''
+    // PREFIX-123   |   PEFIX-123     |     123
+    // PREFIX-123   |   PREFIX-23     |     23
+    // PREFIX-123   |   PREFIX-1234   |     1234
+    getPrefixStrippedValue: function (value, prefix, prefixLength, prevResult, delimiter, delimiters, noImmediatePrefix) {
+        // No prefix
+        if (prefixLength === 0) {
+          return value;
         }
 
+        // Pre result prefix string does not match pre-defined prefix
+        if (prevResult.slice(0, prefixLength) !== prefix) {
+          // Check if the first time user entered something
+          if (noImmediatePrefix && !prevResult && value) return value;
+
+          return '';
+        }
+
+        var prevValue = this.stripDelimiters(prevResult, delimiter, delimiters);
+
+        // New value has issue, someone typed in between prefix letters
+        // Revert to pre value
+        if (value.slice(0, prefixLength) !== prefix) {
+          return prevValue.slice(prefixLength);
+        }
+
+        // No issue, strip prefix for new value
         return value.slice(prefixLength);
     },
 
@@ -170,6 +188,18 @@ var Util = {
         }, 1);
     },
 
+    // Check if input field is fully selected
+    checkFullSelection: function(value) {
+      try {
+        var selection = window.getSelection() || document.getSelection() || {};
+        return selection.toString().length === value.length;
+      } catch (ex) {
+        // Ignore
+      }
+
+      return false;
+    },
+
     setSelection: function (element, position, doc) {
         if (element !== this.getActiveElement(doc)) {
             return;
@@ -194,7 +224,7 @@ var Util = {
             }
         }
     },
-    
+
     getActiveElement: function(parent) {
         var activeElement = parent.activeElement;
         if (activeElement && activeElement.shadowRoot) {

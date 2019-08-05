@@ -21,7 +21,7 @@ describe('Time input field', function () {
 
     it('should correct large time hour to add leading 0', function () {
         cleave.setRawValue('4');
-        assert.equal(field.value, '02:');
+        assert.equal(field.value, '04:');
     });
 
     it('should correct large min to add leading 0', function () {
@@ -39,7 +39,7 @@ describe('Date input field with pattern', function () {
     var field = document.querySelector('.input-time');
     var cleave = new Cleave(field, {
         time:        true,
-        timePattern: ['m': 's']
+        timePattern: ['m', 's']
     });
 
     it('should format fully matched input value', function () {

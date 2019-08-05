@@ -27,8 +27,8 @@ var paths = {
 gulp.task('min-mangle', function () {
     return gulp.src([
             path.join(paths.dist, 'cleave.js'),
-            path.join(paths.dist, 'cleave.js-react-node.js'),
-            path.join(paths.dist, 'cleave.js-react.js')
+            path.join(paths.dist, 'cleave-react-node.js'),
+            path.join(paths.dist, 'cleave-react.js')
         ])
         .pipe(uglify({mangle: true}))
         .pipe(header(getLicense(), {
@@ -42,7 +42,7 @@ gulp.task('min-mangle', function () {
 
 gulp.task('min-no-mangle', function () {
     return gulp.src([
-            path.join(paths.dist, 'cleave.js-angular.js')
+            path.join(paths.dist, 'cleave-angular.js')
         ])
         .pipe(uglify({mangle: false}))
         .pipe(header(getLicense(), {
@@ -65,6 +65,10 @@ gulp.task('build', gulpsync.sync([
     'js:react-node',
     'js:angular-merge',
     'js:angular',
+    [
+        'js:esm',
+        'js:esm-min'
+    ],
     [
         // async
         'min-mangle',

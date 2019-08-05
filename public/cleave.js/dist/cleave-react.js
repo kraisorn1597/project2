@@ -88,10 +88,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            phoneRegionCode = (nextProps.options || {}).phoneRegionCode,
 	            newValue = nextProps.value;
 
+	        // update registed events
+	        owner.updateRegisteredEvents(nextProps);
+
 	        if (newValue !== undefined) {
 	            newValue = newValue.toString();
 
-	            if (newValue !== owner.properties.initValue && newValue !== owner.properties.result) {
+	            if (newValue !== owner.properties.result) {
 	                owner.properties.initValue = newValue;
 	                owner.onInput(newValue, true);
 	            }
@@ -103,6 +106,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	            owner.initPhoneFormatter();
 	            owner.onInput(owner.properties.result);
 	        }
+	    },
+
+	    updateRegisteredEvents: function updateRegisteredEvents(props) {
+	        var owner = this,
+	            _owner$registeredEven = owner.registeredEvents,
+	            onKeyDown = _owner$registeredEven.onKeyDown,
+	            onChange = _owner$registeredEven.onChange,
+	            onFocus = _owner$registeredEven.onFocus,
+	            onBlur = _owner$registeredEven.onBlur,
+	            onInit = _owner$registeredEven.onInit;
+
+
+	        if (props.onInit && props.onInit !== onInit) owner.registeredEvents.onInit = props.onInit;
+	        if (props.onChange && props.onChange !== onChange) owner.registeredEvents.onChange = props.onChange;
+	        if (props.onFocus && props.onFocus !== onFocus) owner.registeredEvents.onFocus = props.onFocus;
+	        if (props.onBlur && props.onBlur !== onBlur) owner.registeredEvents.onBlur = props.onBlur;
+	        if (props.onKeyDown && props.onKeyDown !== onKeyDown) owner.registeredEvents.onKeyDown = props.onKeyDown;
 	    },
 
 	    getInitialState: function getInitialState() {
@@ -177,7 +197,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 
-	        pps.numeralFormatter = new NumeralFormatter(pps.numeralDecimalMark, pps.numeralIntegerScale, pps.numeralDecimalScale, pps.numeralThousandsGroupStyle, pps.numeralPositiveOnly, pps.stripLeadingZeroes, pps.delimiter);
+	        pps.numeralFormatter = new NumeralFormatter(pps.numeralDecimalMark, pps.numeralIntegerScale, pps.numeralDecimalScale, pps.numeralThousandsGroupStyle, pps.numeralPositiveOnly, pps.stripLeadingZeroes, pps.prefix, pps.signBeforePrefix, pps.delimiter);
 	    },
 
 	    initTimeFormatter: function initTimeFormatter() {
@@ -188,7 +208,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 
-	        pps.timeFormatter = new TimeFormatter(pps.timePattern);
+	        pps.timeFormatter = new TimeFormatter(pps.timePattern, pps.timeFormat);
 	        pps.blocks = pps.timeFormatter.getBlocks();
 	        pps.blocksLength = pps.blocks.length;
 	        pps.maxLength = Util.getMaxLength(pps.blocks);
@@ -202,7 +222,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 
-	        pps.dateFormatter = new DateFormatter(pps.datePattern);
+	        pps.dateFormatter = new DateFormatter(pps.datePattern, pps.dateMin, pps.dateMax);
 	        pps.blocks = pps.dateFormatter.getBlocks();
 	        pps.blocksLength = pps.blocks.length;
 	        pps.maxLength = Util.getMaxLength(pps.blocks);
@@ -235,7 +255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            value = value.replace('.', pps.numeralDecimalMark);
 	        }
 
-	        pps.backspace = false;
+	        pps.postDelimiterBackspace = false;
 
 	        owner.onChange({
 	            target: { value: value },
@@ -253,7 +273,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            rawValue = pps.result;
 
 	        if (pps.rawValueTrimPrefix) {
-	            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result);
+	            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result, pps.delimiter, pps.delimiters);
 	        }
 
 	        if (pps.numeral) {
@@ -272,6 +292,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return pps.date ? pps.dateFormatter.getISOFormatDate() : '';
 	    },
 
+	    getISOFormatTime: function getISOFormatTime() {
+	        var owner = this,
+	            pps = owner.properties;
+
+	        return pps.time ? pps.timeFormatter.getISOFormatTime() : '';
+	    },
+
 	    onInit: function onInit(owner) {
 	        return owner;
 	    },
@@ -281,11 +308,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	            pps = owner.properties,
 	            charCode = event.which || event.keyCode;
 
+	        // if we got any charCode === 8, this means, that this device correctly
+	        // sends backspace keys in event, so we do not need to apply any hacks
+	        owner.hasBackspaceSupport = owner.hasBackspaceSupport || charCode === 8;
+	        if (!owner.hasBackspaceSupport && Util.isAndroidBackspaceKeydown(owner.lastInputValue, pps.result)) {
+	            charCode = 8;
+	        }
+
 	        // hit backspace when last character is delimiter
-	        if (charCode === 8 && Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-	            pps.backspace = true;
+	        var postDelimiter = Util.getPostDelimiter(pps.result, pps.delimiter, pps.delimiters);
+	        if (charCode === 8 && postDelimiter) {
+	            pps.postDelimiterBackspace = postDelimiter;
 	        } else {
-	            pps.backspace = false;
+	            pps.postDelimiterBackspace = false;
 	        }
 
 	        owner.registeredEvents.onKeyDown(event);
@@ -329,22 +364,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var owner = this,
 	            pps = owner.properties;
 
-	        if (Util.isAndroidBackspaceKeydown(owner.lastInputValue, owner.element.value) && Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-	            pps.backspace = true;
-	        }
-
 	        // case 1: delete one more character "4"
 	        // 1234*| -> hit backspace -> 123|
 	        // case 2: last character is not delimiter which is:
 	        // 12|34* -> hit backspace -> 1|34*
-
-	        if (!fromProps && !pps.numeral && pps.backspace && !Util.isDelimiter(value.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-	            value = Util.headStr(value, value.length - pps.delimiterLength);
+	        var postDelimiterAfter = Util.getPostDelimiter(value, pps.delimiter, pps.delimiters);
+	        if (!fromProps && !pps.numeral && pps.postDelimiterBackspace && !postDelimiterAfter) {
+	            value = Util.headStr(value, value.length - pps.postDelimiterBackspace.length);
 	        }
 
 	        // phone formatter
 	        if (pps.phone) {
-	            pps.result = pps.phoneFormatter.format(value);
+	            if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
+	                pps.result = pps.prefix + pps.phoneFormatter.format(value).slice(pps.prefix.length);
+	            } else {
+	                pps.result = pps.phoneFormatter.format(value);
+	            }
 	            owner.updateValueState();
 
 	            return;
@@ -352,8 +387,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // numeral formatter
 	        if (pps.numeral) {
-	            if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
-	                pps.result = pps.prefix + pps.numeralFormatter.format(value);
+	            // Do not show prefix when noImmediatePrefix is specified
+	            // This mostly because we need to show user the native input placeholder
+	            if (pps.prefix && pps.noImmediatePrefix && value.length === 0) {
+	                pps.result = '';
 	            } else {
 	                pps.result = pps.numeralFormatter.format(value);
 	            }
@@ -376,7 +413,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value = Util.stripDelimiters(value, pps.delimiter, pps.delimiters);
 
 	        // strip prefix
-	        value = Util.getPrefixStrippedValue(value, pps.prefix, pps.prefixLength, pps.result);
+	        value = Util.getPrefixStrippedValue(value, pps.prefix, pps.prefixLength, pps.result, pps.delimiter, pps.delimiters, pps.noImmediatePrefix);
 
 	        // strip non-numeric characters
 	        value = pps.numericOnly ? Util.strip(value, /[^\d]/g) : value;
@@ -385,7 +422,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value = pps.uppercase ? value.toUpperCase() : value;
 	        value = pps.lowercase ? value.toLowerCase() : value;
 
-	        // prefix
+	        // prevent from showing prefix when no immediate option enabled with empty input value
 	        if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
 	            value = pps.prefix + value;
 
@@ -442,6 +479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (!owner.element) {
 	            owner.setState({ value: pps.result });
+	            return;
 	        }
 
 	        var endPos = owner.element.selectionEnd;
@@ -511,12 +549,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -547,12 +583,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -820,6 +854,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    componentWillUnmount: 'DEFINE_MANY',
 
+	    /**
+	     * Replacement for (deprecated) `componentWillMount`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillMount: 'DEFINE_MANY',
+
+	    /**
+	     * Replacement for (deprecated) `componentWillReceiveProps`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillReceiveProps: 'DEFINE_MANY',
+
+	    /**
+	     * Replacement for (deprecated) `componentWillUpdate`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillUpdate: 'DEFINE_MANY',
+
 	    // ==== Advanced methods ====
 
 	    /**
@@ -833,6 +888,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @overridable
 	     */
 	    updateComponent: 'OVERRIDE_BASE'
+	  };
+
+	  /**
+	   * Similar to ReactClassInterface but for static methods.
+	   */
+	  var ReactClassStaticInterface = {
+	    /**
+	     * This method is invoked after a component is instantiated and when it
+	     * receives new props. Return an object to update state in response to
+	     * prop changes. Return null to indicate no change to state.
+	     *
+	     * If an object is returned, its keys will be merged into the existing state.
+	     *
+	     * @return {object || null}
+	     * @optional
+	     */
+	    getDerivedStateFromProps: 'DEFINE_MANY_MERGED'
 	  };
 
 	  /**
@@ -1069,6 +1141,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!statics) {
 	      return;
 	    }
+
 	    for (var name in statics) {
 	      var property = statics[name];
 	      if (!statics.hasOwnProperty(name)) {
@@ -1085,14 +1158,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        name
 	      );
 
-	      var isInherited = name in Constructor;
-	      _invariant(
-	        !isInherited,
-	        'ReactClass: You are attempting to define ' +
-	          '`%s` on your component more than once. This conflict may be ' +
-	          'due to a mixin.',
-	        name
-	      );
+	      var isAlreadyDefined = name in Constructor;
+	      if (isAlreadyDefined) {
+	        var specPolicy = ReactClassStaticInterface.hasOwnProperty(name)
+	          ? ReactClassStaticInterface[name]
+	          : null;
+
+	        _invariant(
+	          specPolicy === 'DEFINE_MANY_MERGED',
+	          'ReactClass: You are attempting to define ' +
+	            '`%s` on your component more than once. This conflict may be ' +
+	            'due to a mixin.',
+	          name
+	        );
+
+	        Constructor[name] = createMergedResultFunction(Constructor[name], property);
+
+	        return;
+	      }
+
 	      Constructor[name] = property;
 	    }
 	  }
@@ -1400,6 +1484,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        !Constructor.prototype.componentWillRecieveProps,
 	        '%s has a method called ' +
 	          'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?',
+	        spec.displayName || 'A component'
+	      );
+	      warning(
+	        !Constructor.prototype.UNSAFE_componentWillRecieveProps,
+	        '%s has a method called UNSAFE_componentWillRecieveProps(). ' +
+	          'Did you mean UNSAFE_componentWillReceiveProps()?',
 	        spec.displayName || 'A component'
 	      );
 	    }
@@ -1713,11 +1803,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1738,11 +1826,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1798,12 +1884,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1871,11 +1955,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -1912,7 +1994,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var NumeralFormatter = function NumeralFormatter(numeralDecimalMark, numeralIntegerScale, numeralDecimalScale, numeralThousandsGroupStyle, numeralPositiveOnly, stripLeadingZeroes, delimiter) {
+	var NumeralFormatter = function NumeralFormatter(numeralDecimalMark, numeralIntegerScale, numeralDecimalScale, numeralThousandsGroupStyle, numeralPositiveOnly, stripLeadingZeroes, prefix, signBeforePrefix, delimiter) {
 	    var owner = this;
 
 	    owner.numeralDecimalMark = numeralDecimalMark || '.';
@@ -1921,6 +2003,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    owner.numeralThousandsGroupStyle = numeralThousandsGroupStyle || NumeralFormatter.groupStyle.thousand;
 	    owner.numeralPositiveOnly = !!numeralPositiveOnly;
 	    owner.stripLeadingZeroes = stripLeadingZeroes !== false;
+	    owner.prefix = prefix || prefix === '' ? prefix : '';
+	    owner.signBeforePrefix = !!signBeforePrefix;
 	    owner.delimiter = delimiter || delimiter === '' ? delimiter : ',';
 	    owner.delimiterRE = delimiter ? new RegExp('\\' + delimiter, 'g') : '';
 	};
@@ -1940,6 +2024,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    format: function format(value) {
 	        var owner = this,
 	            parts,
+	            partSign,
+	            partSignAndPrefix,
 	            partInteger,
 	            partDecimal = '';
 
@@ -1969,6 +2055,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            value = value.replace(/^(-)?0+(?=\d)/, '$1');
 	        }
 
+	        partSign = value.slice(0, 1) === '-' ? '-' : '';
+	        if (typeof owner.prefix != 'undefined') {
+	            if (owner.signBeforePrefix) {
+	                partSignAndPrefix = partSign + owner.prefix;
+	            } else {
+	                partSignAndPrefix = owner.prefix + partSign;
+	            }
+	        } else {
+	            partSignAndPrefix = partSign;
+	        }
+
 	        partInteger = value;
 
 	        if (value.indexOf(owner.numeralDecimalMark) >= 0) {
@@ -1977,8 +2074,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            partDecimal = owner.numeralDecimalMark + parts[1].slice(0, owner.numeralDecimalScale);
 	        }
 
+	        if (partSign === '-') {
+	            partInteger = partInteger.slice(1);
+	        }
+
 	        if (owner.numeralIntegerScale > 0) {
-	            partInteger = partInteger.slice(0, owner.numeralIntegerScale + (value.slice(0, 1) === '-' ? 1 : 0));
+	            partInteger = partInteger.slice(0, owner.numeralIntegerScale);
 	        }
 
 	        switch (owner.numeralThousandsGroupStyle) {
@@ -1998,7 +2099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                break;
 	        }
 
-	        return partInteger.toString() + (owner.numeralDecimalScale > 0 ? partDecimal.toString() : '');
+	        return partSignAndPrefix + partInteger.toString() + (owner.numeralDecimalScale > 0 ? partDecimal.toString() : '');
 	    }
 	};
 
@@ -2010,12 +2111,22 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var DateFormatter = function DateFormatter(datePattern) {
+	var DateFormatter = function DateFormatter(datePattern, dateMin, dateMax) {
 	    var owner = this;
 
 	    owner.date = [];
 	    owner.blocks = [];
 	    owner.datePattern = datePattern;
+	    owner.dateMin = dateMin.split('-').reverse().map(function (x) {
+	        return parseInt(x, 10);
+	    });
+	    if (owner.dateMin.length === 2) owner.dateMin.unshift(0);
+
+	    owner.dateMax = dateMax.split('-').reverse().map(function (x) {
+	        return parseInt(x, 10);
+	    });
+	    if (owner.dateMax.length === 2) owner.dateMax.unshift(0);
+
 	    owner.initBlocks();
 	};
 
@@ -2142,18 +2253,66 @@ return /******/ (function(modules) { // webpackBootstrap
 	            date = this.getFixedDate(day, month, year);
 	        }
 
+	        // mm-yy || yy-mm
+	        if (value.length === 4 && (datePattern[0] === 'y' || datePattern[1] === 'y')) {
+	            monthStartIndex = datePattern[0] === 'm' ? 0 : 2;
+	            yearStartIndex = 2 - monthStartIndex;
+	            month = parseInt(value.slice(monthStartIndex, monthStartIndex + 2), 10);
+	            year = parseInt(value.slice(yearStartIndex, yearStartIndex + 2), 10);
+
+	            fullYearDone = value.slice(yearStartIndex, yearStartIndex + 2).length === 2;
+
+	            date = [0, month, year];
+	        }
+
+	        // mm-yyyy || yyyy-mm
+	        if (value.length === 6 && (datePattern[0] === 'Y' || datePattern[1] === 'Y')) {
+	            monthStartIndex = datePattern[0] === 'm' ? 0 : 4;
+	            yearStartIndex = 2 - 0.5 * monthStartIndex;
+	            month = parseInt(value.slice(monthStartIndex, monthStartIndex + 2), 10);
+	            year = parseInt(value.slice(yearStartIndex, yearStartIndex + 4), 10);
+
+	            fullYearDone = value.slice(yearStartIndex, yearStartIndex + 4).length === 4;
+
+	            date = [0, month, year];
+	        }
+
+	        date = owner.getRangeFixedDate(date);
 	        owner.date = date;
 
-	        return date.length === 0 ? value : datePattern.reduce(function (previous, current) {
+	        var result = date.length === 0 ? value : datePattern.reduce(function (previous, current) {
 	            switch (current) {
 	                case 'd':
-	                    return previous + owner.addLeadingZero(date[0]);
+	                    return previous + (date[0] === 0 ? '' : owner.addLeadingZero(date[0]));
 	                case 'm':
-	                    return previous + owner.addLeadingZero(date[1]);
-	                default:
-	                    return previous + (fullYearDone ? owner.addLeadingZeroForYear(date[2]) : '');
+	                    return previous + (date[1] === 0 ? '' : owner.addLeadingZero(date[1]));
+	                case 'y':
+	                    return previous + (fullYearDone ? owner.addLeadingZeroForYear(date[2], false) : '');
+	                case 'Y':
+	                    return previous + (fullYearDone ? owner.addLeadingZeroForYear(date[2], true) : '');
 	            }
 	        }, '');
+
+	        return result;
+	    },
+
+	    getRangeFixedDate: function getRangeFixedDate(date) {
+	        var owner = this,
+	            datePattern = owner.datePattern,
+	            dateMin = owner.dateMin || [],
+	            dateMax = owner.dateMax || [];
+
+	        if (!date.length || dateMin.length < 3 && dateMax.length < 3) return date;
+
+	        if (datePattern.find(function (x) {
+	            return x.toLowerCase() === 'y';
+	        }) && date[2] === 0) return date;
+
+	        if (dateMax.length && (dateMax[2] < date[2] || dateMax[2] === date[2] && (dateMax[1] < date[1] || dateMax[1] === date[1] && dateMax[0] < date[0]))) return dateMax;
+
+	        if (dateMin.length && (dateMin[2] > date[2] || dateMin[2] === date[2] && (dateMin[1] > date[1] || dateMin[1] === date[1] && dateMin[0] > date[0]))) return dateMin;
+
+	        return date;
 	    },
 
 	    getFixedDate: function getFixedDate(day, month, year) {
@@ -2176,8 +2335,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return (number < 10 ? '0' : '') + number;
 	    },
 
-	    addLeadingZeroForYear: function addLeadingZeroForYear(number) {
-	        return (number < 10 ? '000' : number < 100 ? '00' : number < 1000 ? '0' : '') + number;
+	    addLeadingZeroForYear: function addLeadingZeroForYear(number, fullYearMode) {
+	        if (fullYearMode) {
+	            return (number < 10 ? '000' : number < 100 ? '00' : number < 1000 ? '0' : '') + number;
+	        }
+
+	        return (number < 10 ? '0' : '') + number;
 	    }
 	};
 
@@ -2189,12 +2352,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var TimeFormatter = function TimeFormatter(timePattern) {
+	var TimeFormatter = function TimeFormatter(timePattern, timeFormat) {
 	    var owner = this;
 
 	    owner.time = [];
 	    owner.blocks = [];
 	    owner.timePattern = timePattern;
+	    owner.timeFormat = timeFormat;
 	    owner.initBlocks();
 	};
 
@@ -2217,11 +2381,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this.blocks;
 	    },
 
+	    getTimeFormatOptions: function getTimeFormatOptions() {
+	        var owner = this;
+	        if (String(owner.timeFormat) === '12') {
+	            return {
+	                maxHourFirstDigit: 1,
+	                maxHours: 12,
+	                maxMinutesFirstDigit: 5,
+	                maxMinutes: 60
+	            };
+	        }
+
+	        return {
+	            maxHourFirstDigit: 2,
+	            maxHours: 23,
+	            maxMinutesFirstDigit: 5,
+	            maxMinutes: 60
+	        };
+	    },
+
 	    getValidatedTime: function getValidatedTime(value) {
 	        var owner = this,
 	            result = '';
 
 	        value = value.replace(/[^\d]/g, '');
+
+	        var timeFormatOptions = owner.getTimeFormatOptions();
 
 	        owner.blocks.forEach(function (length, index) {
 	            if (value.length > 0) {
@@ -2232,20 +2417,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	                switch (owner.timePattern[index]) {
 
 	                    case 'h':
-	                        if (parseInt(sub0, 10) > 2) {
+	                        if (parseInt(sub0, 10) > timeFormatOptions.maxHourFirstDigit) {
 	                            sub = '0' + sub0;
-	                        } else if (parseInt(sub, 10) > 23) {
-	                            sub = '23';
+	                        } else if (parseInt(sub, 10) > timeFormatOptions.maxHours) {
+	                            sub = timeFormatOptions.maxHours + '';
 	                        }
 
 	                        break;
 
 	                    case 'm':
 	                    case 's':
-	                        if (parseInt(sub0, 10) > 5) {
+	                        if (parseInt(sub0, 10) > timeFormatOptions.maxMinutesFirstDigit) {
 	                            sub = '0' + sub0;
-	                        } else if (parseInt(sub, 10) > 60) {
-	                            sub = '60';
+	                        } else if (parseInt(sub, 10) > timeFormatOptions.maxMinutes) {
+	                            sub = timeFormatOptions.maxMinutes + '';
 	                        }
 	                        break;
 	                }
@@ -2439,8 +2624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        visa: [4, 4, 4, 4],
 	        mir: [4, 4, 4, 4],
 	        unionPay: [4, 4, 4, 4],
-	        general: [4, 4, 4, 4],
-	        generalStrict: [4, 4, 4, 7]
+	        general: [4, 4, 4, 4]
 	    },
 
 	    re: {
@@ -2484,6 +2668,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        unionPay: /^62\d{0,14}/
 	    },
 
+	    getStrictBlocks: function getStrictBlocks(block) {
+	        var total = block.reduce(function (prev, current) {
+	            return prev + current;
+	        }, 0);
+
+	        return block.concat(19 - total);
+	    },
+
 	    getInfo: function getInfo(value, strictMode) {
 	        var blocks = CreditCardDetector.blocks,
 	            re = CreditCardDetector.re;
@@ -2496,24 +2688,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        for (var key in re) {
 	            if (re[key].test(value)) {
-	                var block;
-
-	                if (strictMode) {
-	                    block = blocks.generalStrict;
-	                } else {
-	                    block = blocks[key];
-	                }
-
+	                var matchedBlocks = blocks[key];
 	                return {
 	                    type: key,
-	                    blocks: block
+	                    blocks: strictMode ? this.getStrictBlocks(matchedBlocks) : matchedBlocks
 	                };
 	            }
 	        }
 
 	        return {
 	            type: 'unknown',
-	            blocks: strictMode ? blocks.generalStrict : blocks.general
+	            blocks: strictMode ? this.getStrictBlocks(blocks.general) : blocks.general
 	        };
 	    }
 	};
@@ -2533,18 +2718,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return value.replace(re, '');
 	    },
 
-	    isDelimiter: function isDelimiter(letter, delimiter, delimiters) {
+	    getPostDelimiter: function getPostDelimiter(value, delimiter, delimiters) {
 	        // single delimiter
 	        if (delimiters.length === 0) {
-	            return letter === delimiter;
+	            return value.slice(-delimiter.length) === delimiter ? delimiter : '';
 	        }
 
 	        // multiple delimiters
-	        return delimiters.some(function (current) {
-	            if (letter === current) {
-	                return true;
+	        var matchedDelimiter = '';
+	        delimiters.forEach(function (current) {
+	            if (value.slice(-current.length) === current) {
+	                matchedDelimiter = current;
 	            }
 	        });
+
+	        return matchedDelimiter;
 	    },
 
 	    getDelimiterREByDelimiter: function getDelimiterREByDelimiter(delimiter) {
@@ -2583,7 +2771,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // multiple delimiters
 	        delimiters.forEach(function (current) {
-	            value = value.replace(owner.getDelimiterREByDelimiter(current), '');
+	            current.split('').forEach(function (letter) {
+	                value = value.replace(owner.getDelimiterREByDelimiter(letter), '');
+	            });
 	        });
 
 	        return value;
@@ -2599,22 +2789,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 0);
 	    },
 
-	    // strip value by prefix length
-	    // for prefix: PRE
-	    // (PRE123, 3) -> 123
-	    // (PR123, 3) -> 23 this happens when user hits backspace in front of "PRE"
-	    getPrefixStrippedValue: function getPrefixStrippedValue(value, prefix, prefixLength, prevValue) {
-	        if (value.slice(0, prefixLength) !== prefix) {
-
-	            // Check whether if it is a deletion
-	            if (value.length < prevValue.length) {
-	                value = value.length > prefixLength ? prevValue : prefix;
-	            } else {
-	                var diffIndex = this.getFirstDiffIndex(prefix, value.slice(0, prefixLength));
-	                value = prefix + value.slice(diffIndex, diffIndex + 1) + value.slice(prefixLength + 1);
-	            }
+	    // strip prefix
+	    // Before type  |   After type    |     Return value
+	    // PEFIX-...    |   PEFIX-...     |     ''
+	    // PREFIX-123   |   PEFIX-123     |     123
+	    // PREFIX-123   |   PREFIX-23     |     23
+	    // PREFIX-123   |   PREFIX-1234   |     1234
+	    getPrefixStrippedValue: function getPrefixStrippedValue(value, prefix, prefixLength, prevResult, delimiter, delimiters, noImmediatePrefix) {
+	        // No prefix
+	        if (prefixLength === 0) {
+	            return value;
 	        }
 
+	        // Pre result prefix string does not match pre-defined prefix
+	        if (prevResult.slice(0, prefixLength) !== prefix) {
+	            // Check if the first time user entered something
+	            if (noImmediatePrefix && !prevResult && value) return value;
+
+	            return '';
+	        }
+
+	        var prevValue = this.stripDelimiters(prevResult, delimiter, delimiters);
+
+	        // New value has issue, someone typed in between prefix letters
+	        // Revert to pre value
+	        if (value.slice(0, prefixLength) !== prefix) {
+	            return prevValue.slice(prefixLength);
+	        }
+
+	        // No issue, strip prefix for new value
 	        return value.slice(prefixLength);
 	    },
 
@@ -2693,6 +2896,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        setTimeout(function () {
 	            el.setSelectionRange(len, len);
 	        }, 1);
+	    },
+
+	    // Check if input field is fully selected
+	    checkFullSelection: function checkFullSelection(value) {
+	        try {
+	            var selection = window.getSelection() || document.getSelection() || {};
+	            return selection.toString().length === value.length;
+	        } catch (ex) {
+	            // Ignore
+	        }
+
+	        return false;
 	    },
 
 	    setSelection: function setSelection(element, position, doc) {
@@ -2782,11 +2997,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        // time
 	        target.time = !!opts.time;
 	        target.timePattern = opts.timePattern || ['h', 'm', 's'];
+	        target.timeFormat = opts.timeFormat || '24';
 	        target.timeFormatter = {};
 
 	        // date
 	        target.date = !!opts.date;
 	        target.datePattern = opts.datePattern || ['d', 'm', 'Y'];
+	        target.dateMin = opts.dateMin || '';
+	        target.dateMax = opts.dateMax || '';
 	        target.dateFormatter = {};
 
 	        // numeral
@@ -2797,6 +3015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        target.numeralThousandsGroupStyle = opts.numeralThousandsGroupStyle || 'thousand';
 	        target.numeralPositiveOnly = !!opts.numeralPositiveOnly;
 	        target.stripLeadingZeroes = opts.stripLeadingZeroes !== false;
+	        target.signBeforePrefix = !!opts.signBeforePrefix;
 
 	        // others
 	        target.numericOnly = target.creditCard || target.date || !!opts.numericOnly;

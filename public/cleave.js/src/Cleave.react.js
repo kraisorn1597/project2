@@ -28,10 +28,13 @@ var cleaveReactClass = CreateReactClass({
             phoneRegionCode = (nextProps.options || {}).phoneRegionCode,
             newValue = nextProps.value;
 
+        // update registed events
+        owner.updateRegisteredEvents(nextProps);
+
         if (newValue !== undefined) {
             newValue = newValue.toString();
 
-            if (newValue !== owner.properties.initValue && newValue !== owner.properties.result) {
+            if (newValue !== owner.properties.result) {
                 owner.properties.initValue = newValue;
                 owner.onInput(newValue, true);
             }
@@ -43,6 +46,17 @@ var cleaveReactClass = CreateReactClass({
             owner.initPhoneFormatter();
             owner.onInput(owner.properties.result);
         }
+    },
+
+    updateRegisteredEvents: function (props) {
+        var owner = this,
+            { onKeyDown, onChange, onFocus, onBlur, onInit } = owner.registeredEvents;
+
+        if (props.onInit && props.onInit !== onInit) owner.registeredEvents.onInit = props.onInit;
+        if (props.onChange && props.onChange !== onChange) owner.registeredEvents.onChange = props.onChange;
+        if (props.onFocus && props.onFocus !== onFocus) owner.registeredEvents.onFocus = props.onFocus;
+        if (props.onBlur && props.onBlur !== onBlur) owner.registeredEvents.onBlur = props.onBlur;
+        if (props.onKeyDown && props.onKeyDown !== onKeyDown) owner.registeredEvents.onKeyDown = props.onKeyDown;
     },
 
     getInitialState: function () {
@@ -116,6 +130,8 @@ var cleaveReactClass = CreateReactClass({
             pps.numeralThousandsGroupStyle,
             pps.numeralPositiveOnly,
             pps.stripLeadingZeroes,
+            pps.prefix,
+            pps.signBeforePrefix,
             pps.delimiter
         );
     },
@@ -128,7 +144,7 @@ var cleaveReactClass = CreateReactClass({
             return;
         }
 
-        pps.timeFormatter = new TimeFormatter(pps.timePattern);
+        pps.timeFormatter = new TimeFormatter(pps.timePattern, pps.timeFormat);
         pps.blocks = pps.timeFormatter.getBlocks();
         pps.blocksLength = pps.blocks.length;
         pps.maxLength = Util.getMaxLength(pps.blocks);
@@ -142,7 +158,7 @@ var cleaveReactClass = CreateReactClass({
             return;
         }
 
-        pps.dateFormatter = new DateFormatter(pps.datePattern);
+        pps.dateFormatter = new DateFormatter(pps.datePattern, pps.dateMin, pps.dateMax);
         pps.blocks = pps.dateFormatter.getBlocks();
         pps.blocksLength = pps.blocks.length;
         pps.maxLength = Util.getMaxLength(pps.blocks);
@@ -178,7 +194,7 @@ var cleaveReactClass = CreateReactClass({
             value = value.replace('.', pps.numeralDecimalMark);
         }
 
-        pps.backspace = false;
+        pps.postDelimiterBackspace = false;
 
         owner.onChange({
             target: {value: value},
@@ -195,7 +211,7 @@ var cleaveReactClass = CreateReactClass({
             rawValue = pps.result;
 
         if (pps.rawValueTrimPrefix) {
-            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result);
+            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result, pps.delimiter, pps.delimiters);
         }
 
         if (pps.numeral) {
@@ -214,6 +230,13 @@ var cleaveReactClass = CreateReactClass({
         return pps.date ? pps.dateFormatter.getISOFormatDate() : '';
     },
 
+    getISOFormatTime: function () {
+        var owner = this,
+            pps = owner.properties;
+
+        return pps.time ? pps.timeFormatter.getISOFormatTime() : '';
+    },
+
     onInit: function (owner) {
         return owner;
     },
@@ -223,11 +246,21 @@ var cleaveReactClass = CreateReactClass({
             pps = owner.properties,
             charCode = event.which || event.keyCode;
 
+        // if we got any charCode === 8, this means, that this device correctly
+        // sends backspace keys in event, so we do not need to apply any hacks
+        owner.hasBackspaceSupport = owner.hasBackspaceSupport || charCode === 8;
+        if (!owner.hasBackspaceSupport
+          && Util.isAndroidBackspaceKeydown(owner.lastInputValue, pps.result)
+        ) {
+            charCode = 8;
+        }
+
         // hit backspace when last character is delimiter
-        if (charCode === 8 && Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            pps.backspace = true;
+        var postDelimiter = Util.getPostDelimiter(pps.result, pps.delimiter, pps.delimiters);
+        if (charCode === 8 && postDelimiter) {
+            pps.postDelimiterBackspace = postDelimiter;
         } else {
-            pps.backspace = false;
+            pps.postDelimiterBackspace = false;
         }
 
         owner.registeredEvents.onKeyDown(event);
@@ -268,23 +301,22 @@ var cleaveReactClass = CreateReactClass({
     onInput: function (value, fromProps) {
         var owner = this, pps = owner.properties;
 
-        if (Util.isAndroidBackspaceKeydown(owner.lastInputValue, owner.element.value) &&
-        Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            pps.backspace = true;
-        }
-
         // case 1: delete one more character "4"
         // 1234*| -> hit backspace -> 123|
         // case 2: last character is not delimiter which is:
         // 12|34* -> hit backspace -> 1|34*
-
-        if (!fromProps && !pps.numeral && pps.backspace && !Util.isDelimiter(value.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            value = Util.headStr(value, value.length - pps.delimiterLength);
+        var postDelimiterAfter = Util.getPostDelimiter(value, pps.delimiter, pps.delimiters);
+        if (!fromProps && !pps.numeral && pps.postDelimiterBackspace && !postDelimiterAfter) {
+            value = Util.headStr(value, value.length - pps.postDelimiterBackspace.length);
         }
 
         // phone formatter
         if (pps.phone) {
-            pps.result = pps.phoneFormatter.format(value);
+            if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
+                pps.result = pps.prefix + pps.phoneFormatter.format(value).slice(pps.prefix.length);
+            } else {
+                pps.result = pps.phoneFormatter.format(value);
+            }
             owner.updateValueState();
 
             return;
@@ -292,8 +324,10 @@ var cleaveReactClass = CreateReactClass({
 
         // numeral formatter
         if (pps.numeral) {
-            if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
-                pps.result = pps.prefix + pps.numeralFormatter.format(value);
+            // Do not show prefix when noImmediatePrefix is specified
+            // This mostly because we need to show user the native input placeholder
+            if (pps.prefix && pps.noImmediatePrefix && value.length === 0) {
+                pps.result = '';
             } else {
                 pps.result = pps.numeralFormatter.format(value);
             }
@@ -316,7 +350,10 @@ var cleaveReactClass = CreateReactClass({
         value = Util.stripDelimiters(value, pps.delimiter, pps.delimiters);
 
         // strip prefix
-        value = Util.getPrefixStrippedValue(value, pps.prefix, pps.prefixLength, pps.result);
+        value = Util.getPrefixStrippedValue(
+            value, pps.prefix, pps.prefixLength,
+            pps.result, pps.delimiter, pps.delimiters, pps.noImmediatePrefix
+        );
 
         // strip non-numeric characters
         value = pps.numericOnly ? Util.strip(value, /[^\d]/g) : value;
@@ -325,7 +362,7 @@ var cleaveReactClass = CreateReactClass({
         value = pps.uppercase ? value.toUpperCase() : value;
         value = pps.lowercase ? value.toLowerCase() : value;
 
-        // prefix
+        // prevent from showing prefix when no immediate option enabled with empty input value
         if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
             value = pps.prefix + value;
 
@@ -385,6 +422,7 @@ var cleaveReactClass = CreateReactClass({
 
         if (!owner.element) {
             owner.setState({ value: pps.result });
+            return;
         }
 
         var endPos = owner.element.selectionEnd;

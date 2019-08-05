@@ -8,15 +8,31 @@
  */
 var Cleave = function (element, opts) {
     var owner = this;
+    var hasMultipleElements = false;
 
     if (typeof element === 'string') {
         owner.element = document.querySelector(element);
+        hasMultipleElements = document.querySelectorAll(element).length > 1;
     } else {
-        owner.element = ((typeof element.length !== 'undefined') && element.length > 0) ? element[0] : element;
+      if (typeof element.length !== 'undefined' && element.length > 0) {
+        owner.element = element[0];
+        hasMultipleElements = element.length > 1;
+      } else {
+        owner.element = element;
+      }
     }
 
     if (!owner.element) {
         throw new Error('[cleave.js] Please check the element');
+    }
+
+    if (hasMultipleElements) {
+      try {
+        // eslint-disable-next-line
+        console.warn('[cleave.js] Multiple input fields matched, cleave.js will only take the first one.');
+      } catch (e) {
+        // Old IE
+      }
     }
 
     opts.initValue = owner.element.value;
@@ -81,6 +97,8 @@ Cleave.prototype = {
             pps.numeralThousandsGroupStyle,
             pps.numeralPositiveOnly,
             pps.stripLeadingZeroes,
+            pps.prefix,
+            pps.signBeforePrefix,
             pps.delimiter
         );
     },
@@ -92,7 +110,7 @@ Cleave.prototype = {
             return;
         }
 
-        pps.timeFormatter = new Cleave.TimeFormatter(pps.timePattern);
+        pps.timeFormatter = new Cleave.TimeFormatter(pps.timePattern, pps.timeFormat);
         pps.blocks = pps.timeFormatter.getBlocks();
         pps.blocksLength = pps.blocks.length;
         pps.maxLength = Cleave.Util.getMaxLength(pps.blocks);
@@ -105,7 +123,7 @@ Cleave.prototype = {
             return;
         }
 
-        pps.dateFormatter = new Cleave.DateFormatter(pps.datePattern);
+        pps.dateFormatter = new Cleave.DateFormatter(pps.datePattern, pps.dateMin, pps.dateMax);
         pps.blocks = pps.dateFormatter.getBlocks();
         pps.blocksLength = pps.blocks.length;
         pps.maxLength = Cleave.Util.getMaxLength(pps.blocks);
@@ -136,8 +154,11 @@ Cleave.prototype = {
             Util = Cleave.Util,
             currentValue = owner.element.value;
 
-        if (charCode === 229
-            && Util.isAndroidBackspaceKeydown(owner.lastInputValue, currentValue)
+        // if we got any charCode === 8, this means, that this device correctly
+        // sends backspace keys in event, so we do not need to apply any hacks
+        owner.hasBackspaceSupport = owner.hasBackspaceSupport || charCode === 8;
+        if (!owner.hasBackspaceSupport
+          && Util.isAndroidBackspaceKeydown(owner.lastInputValue, currentValue)
         ) {
             charCode = 8;
         }
@@ -145,13 +166,12 @@ Cleave.prototype = {
         owner.lastInputValue = currentValue;
 
         // hit backspace when last character is delimiter
-        if (charCode === 8 && Util.isDelimiter(currentValue.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            pps.backspace = true;
-
-            return;
+        var postDelimiter = Util.getPostDelimiter(currentValue, pps.delimiter, pps.delimiters);
+        if (charCode === 8 && postDelimiter) {
+            pps.postDelimiterBackspace = postDelimiter;
+        } else {
+            pps.postDelimiterBackspace = false;
         }
-
-        pps.backspace = false;
     },
 
     onChange: function () {
@@ -166,11 +186,13 @@ Cleave.prototype = {
     },
 
     onCut: function (e) {
+        if (!Cleave.Util.checkFullSelection(this.element.value)) return;
         this.copyClipboardData(e);
         this.onInput('');
     },
 
     onCopy: function (e) {
+        if (!Cleave.Util.checkFullSelection(this.element.value)) return;
         this.copyClipboardData(e);
     },
 
@@ -209,8 +231,9 @@ Cleave.prototype = {
         // case 2: last character is not delimiter which is:
         // 12|34* -> hit backspace -> 1|34*
         // note: no need to apply this for numeral mode
-        if (!pps.numeral && pps.backspace && !Util.isDelimiter(value.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            value = Util.headStr(value, value.length - pps.delimiterLength);
+        var postDelimiterAfter = Util.getPostDelimiter(value, pps.delimiter, pps.delimiters);
+        if (!pps.numeral && pps.postDelimiterBackspace && !postDelimiterAfter) {
+            value = Util.headStr(value, value.length - pps.postDelimiterBackspace.length);
         }
 
         // phone formatter
@@ -227,8 +250,10 @@ Cleave.prototype = {
 
         // numeral formatter
         if (pps.numeral) {
-            if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
-                pps.result = pps.prefix + pps.numeralFormatter.format(value);
+            // Do not show prefix when noImmediatePrefix is specified
+            // This mostly because we need to show user the native input placeholder
+            if (pps.prefix && pps.noImmediatePrefix && value.length === 0) {
+                pps.result = '';
             } else {
                 pps.result = pps.numeralFormatter.format(value);
             }
@@ -251,7 +276,10 @@ Cleave.prototype = {
         value = Util.stripDelimiters(value, pps.delimiter, pps.delimiters);
 
         // strip prefix
-        value = Util.getPrefixStrippedValue(value, pps.prefix, pps.prefixLength, pps.result);
+        value = Util.getPrefixStrippedValue(
+            value, pps.prefix, pps.prefixLength,
+            pps.result, pps.delimiter, pps.delimiters, pps.noImmediatePrefix
+        );
 
         // strip non-numeric characters
         value = pps.numericOnly ? Util.strip(value, /[^\d]/g) : value;
@@ -260,7 +288,7 @@ Cleave.prototype = {
         value = pps.uppercase ? value.toUpperCase() : value;
         value = pps.lowercase ? value.toLowerCase() : value;
 
-        // prefix
+        // prevent from showing prefix when no immediate option enabled with empty input value
         if (pps.prefix && (!pps.noImmediatePrefix || value.length)) {
             value = pps.prefix + value;
 
@@ -376,7 +404,7 @@ Cleave.prototype = {
             value = value.replace('.', pps.numeralDecimalMark);
         }
 
-        pps.backspace = false;
+        pps.postDelimiterBackspace = false;
 
         owner.element.value = value;
         owner.onInput(value);
@@ -389,7 +417,7 @@ Cleave.prototype = {
             rawValue = owner.element.value;
 
         if (pps.rawValueTrimPrefix) {
-            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result);
+            rawValue = Util.getPrefixStrippedValue(rawValue, pps.prefix, pps.prefixLength, pps.result, pps.delimiter, pps.delimiters);
         }
 
         if (pps.numeral) {
@@ -406,6 +434,13 @@ Cleave.prototype = {
             pps = owner.properties;
 
         return pps.date ? pps.dateFormatter.getISOFormatDate() : '';
+    },
+
+    getISOFormatTime: function () {
+        var owner = this,
+            pps = owner.properties;
+
+        return pps.time ? pps.timeFormatter.getISOFormatTime() : '';
     },
 
     getFormattedValue: function () {

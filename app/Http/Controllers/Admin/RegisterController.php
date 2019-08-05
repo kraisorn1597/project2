@@ -32,7 +32,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-      $roles =  Role::all();
+      $roles =  Role::where('id','!=',"1")
+          ->get();
         return view('admin.register' ,compact('roles'));
     }
 

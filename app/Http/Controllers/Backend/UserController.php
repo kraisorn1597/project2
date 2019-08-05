@@ -17,13 +17,34 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index', compact('users'));
+        $search = "";
+        $users = User::paginate(2);
+        return view('admin.users.index', compact('users','search'));
     }
+
     public function create()
     {
         return view('admin.users.create');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+//        dd($search);
+        if ($search == ""){
+            $users = User::paginate(2);
+            return view('admin.users.index',compact('users','search'));
+        }
+        else{
+            $users = User::query()
+                ->where('first_name','LIKE','%'.$search.'%')
+//                ->where('last_name','LIKE','%'.$search.'%')
+                ->paginate(2);
+            $users->appends($request->only('search'));
+            return view('admin.users.index',compact('users','search'));
+        }
+    }
+
     public function store(UserRequest $request)
     {
         User::create([

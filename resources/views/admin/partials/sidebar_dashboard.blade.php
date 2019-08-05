@@ -18,7 +18,7 @@
             <i class="fas fa-home"></i>
             <span>Home</span></a>
     </li>
-
+{{--@if(auth()->user()->role_id == 1)--}}
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -30,7 +30,8 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ Route::currentRouteName() == 'admin.employee.index'|| Route::currentRouteName() == 'admin.users.index' ||
     Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
-    Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ? 'active' : null }} ">
+    Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ||
+    Route::currentRouteName() == 'admin.users.search' || Route::currentRouteName() == 'admin.employee.search' ? 'active' : null }} ">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
            aria-controls="collapseone">
             <i class="fas fa-users"></i>
@@ -38,22 +39,24 @@
         </a>
         <div id="collapseone" class="collapse {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.users.index'||
           Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
-          Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ? 'show' : null  }}"
+          Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ||
+          Route::currentRouteName() == 'admin.users.search' || Route::currentRouteName() == 'admin.employee.search' ? 'show' : null  }}"
              aria-labelledby="headingone" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded ">
                 {{--<h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item fas fa-user-tie {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.employee.create' ||
-                 Route::currentRouteName() == 'admin.employee.edit' ? 'active' : null  }}" href="{{ route('admin.employee.index') }}">  ข้อมูลพนักงาน</a>
+                 Route::currentRouteName() == 'admin.employee.edit' || Route::currentRouteName() == 'admin.employee.search' ? 'active' : null  }}" href="{{ route('admin.employee.index') }}">  ข้อมูลพนักงาน</a>
                 <a class="collapse-item fas fa-user {{ Route::currentRouteName() == 'admin.users.index' || Route::currentRouteName() == 'admin.users.create' ||
-                 Route::currentRouteName() == 'admin.users.edit' ? 'active' : null  }}" href="{{ route('admin.users.index') }}">  ข้อมูลสมาชิก</a>
+                 Route::currentRouteName() == 'admin.users.edit' || Route::currentRouteName() == 'admin.users.search' ? 'active' : null  }}" href="{{ route('admin.users.index') }}">  ข้อมูลสมาชิก</a>
             </div>
         </div>
     </li>
 
-    <li class="nav-item {{ Route::currentRouteName() == 'admin.clothes.index' ? 'active' : null }}">
+    <li class="nav-item {{ Route::currentRouteName() == 'admin.clothes.index' || Route::currentRouteName() == 'admin.clothes.create' ||
+      Route::currentRouteName() == 'admin.clothes.edit' || Route::currentRouteName() == 'admin.clothes.search'? 'active' : null }}">
         <a class="nav-link" href=" {{ route('admin.clothes.index') }}" data-toggle="collapse show" data-target="#collapsetwo" aria-expanded="true"
            aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-dumpster"></i>
             <span>กลุ่มเสื้อผ้า</span>
 {{--            <a href="{{ route('admin.clothes.index') }}"></a>--}}
         </a>
@@ -69,7 +72,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
            aria-controls="collapsethree">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-calendar-alt"></i>
             <span>บริการลูกค้า</span>
         </a>
         <div id="collapsethree" class="collapse" aria-labelledby="headingthree" data-parent="#accordionSidebar">
@@ -84,7 +87,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true"
            aria-controls="collapsefour">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-file-alt"></i>
             <span>รายงานการใช้บริการ</span>
         </a>
         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionSidebar">
@@ -100,7 +103,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true"
            aria-controls="collapsefive">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-bell"></i>
             <span>การแจ้งเตือน</span>
         </a>
         {{--<div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionSidebar">--}}

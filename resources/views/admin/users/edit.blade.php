@@ -158,25 +158,25 @@
         </div>
     </div>
 @endsection
-{{--@push('script')--}}
-{{--<script type="text/javascript">--}}
+@push('script')
+    <script type="text/javascript">
 
-{{--new Cleave('#tel', {--}}
-{{--phone: true,--}}
-{{--delimiter: '-',--}}
-{{--phoneRegionCode: 'TH'--}}
-{{--});--}}
+        new Cleave('#tel', {
+            phone: true,
+            delimiter: '-',
+            phoneRegionCode: 'TH'
+        });
 
-{{--new Cleave('#id_card',{--}}
-{{--blocks: [1, 4, 5, 2, 1],--}}
-{{--numericOnly: true,--}}
-{{--});--}}
+        new Cleave('#id_card',{
+            blocks: [1, 4, 5, 2, 1],
+            numericOnly: true,
+        });
 
-{{--//    new Cleave('#salary',{--}}
-{{--//        numeral: true,--}}
-{{--//        numeralThousandsGroupStyle: 'thousand'--}}
-{{--//    });--}}
-{{--</script>--}}
+        //    new Cleave('#salary',{
+        //        numeral: true,
+        //        numeralThousandsGroupStyle: 'thousand'
+        //    });
+    </script>
 
-{{--@endpush--}}
+@endpush
 

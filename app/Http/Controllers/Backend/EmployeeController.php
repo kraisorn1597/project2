@@ -23,14 +23,37 @@ class EmployeeController extends Controller
 
     public function index()
     {
-        $admins = Admin::all();
-        return view('admin.employee.index', compact('admins'));
+        $search = "";
+        $admins = Admin::paginate(2);
+        return view('admin.employee.index', compact('admins','search'));
     }
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::where('id','!=','1')
+         ->get();
         return view('admin.employee.create', compact('roles'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $admins = Admin::query()
+//                ->where('id', '!=', 1)
+                ->paginate(2);
+            return view('admin.employee.index',['admins' => $admins,'search' => $search]);
+        }
+        else{
+            $admins = Admin::query()
+//                ->where('id', '!=', 1)
+                ->where('first_name','LIKE','%'.$search.'%')
+//                ->where('last_name','LIKE','%'.$search.'%')
+                ->paginate(2);
+            $admins->appends($request->only('search'));
+            return view('admin.employee.index',compact('admins','search'));
+        }
+    }
+
     public function store(Request $request)
     {
 //        dd($request);

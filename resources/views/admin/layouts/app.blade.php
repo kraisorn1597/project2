@@ -11,7 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('cleave.js/dist/cleave.min.js') }}"></script>
+    <script src="{{ asset('cleave.js/dist/addons/cleave-phone.th.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -81,6 +82,6 @@
     </main>
 </div>
     @include('admin.layouts.script')
-    @stack('script')
+{{--    @stack('script')--}}
 </body>
 </html>

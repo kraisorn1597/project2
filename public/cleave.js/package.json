@@ -1,11 +1,21 @@
 {
   "name": "cleave.js",
   "title": "cleave.js",
-  "description":
-    "JavaScript library for formatting input text content when you are typing",
-  "keywords": ["cleave", "javascript", "html", "format", "form", "input"],
-  "version": "1.4.4",
-  "files": ["src", "dist", "react.js"],
+  "description": "JavaScript library for formatting input text content when you are typing",
+  "keywords": [
+    "cleave",
+    "javascript",
+    "html",
+    "format",
+    "form",
+    "input"
+  ],
+  "version": "1.5.3",
+  "files": [
+    "src",
+    "dist",
+    "react.js"
+  ],
   "author": {
     "name": "Max Huang",
     "url": "http://github.com/nosir",
@@ -16,12 +26,14 @@
   "homepage": "https://github.com/nosir/cleave.js",
   "docs": "https://github.com/nosir/cleave.js/blob/master/README.md",
   "main": "dist/cleave.js",
+  "module": "dist/cleave-esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nosir/cleave.js.git"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "build": "gulp build"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",
@@ -51,6 +63,9 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "require-dir": "^0.3.0",
+    "rollup": "^1.7.0",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-terser": "^4.0.4",
     "should": "^9.0.0",
     "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0",

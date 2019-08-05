@@ -4,7 +4,25 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <a class="btn btn-primary" href="{{ route('admin.clothes.create') }}">  เพิ่มเสื้อผ้า</a>
+                <div class="row">
+                    <div class="col-md-3">
+                        <a class="btn btn-outline-primary" href="{{ route('admin.clothes.create') }}"><i class="fas fa-pencil-alt">  เพิ่มเสื้อผ้า</i></a>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col-md-3" style="padding-right: -20%">
+                        <form action="{{ route('admin.clothes.search') }}" method="post" role="search">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-group" value="{{$search }}">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
                 @if(session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px">
@@ -31,6 +49,7 @@
                     </div>
                 @endif
 
+
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">
@@ -43,18 +62,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($clothes as $clothes)
+                        @foreach($clothes as $data)
                             <tr>
-                                <td scope="row">{{ $clothes->id }}</td>
-                                <td>{{ $clothes->name}}</td>
-                                <td>{{ $clothes->price}}</td>
+                                <td scope="row">{{ $data->id }}</td>
+                                <td>{{ $data->name}}</td>
+                                <td>{{ $data->price}}</td>
                                 <td class="row">
-                                    <form method="post" action="{{ route('admin.clothes.delete', $clothes->id) }}">
+                                    <form method="post" action="{{ route('admin.clothes.delete', $data->id) }}">
                                         @csrf
-                                        <a class="fas fa-user-edit" href="{{ route('admin.clothes.edit', $clothes->id) }}"> edit</a>
+                                        <a class="btn btn-outline-info" href="{{ route('admin.clothes.edit', $data->id) }}">
+                                            <i class="fas fa-edit"> edit</i>
+                                        </a>
 {{--                                        <button type="submit" class="fas fa-trash-alt">  Delete</button>--}}
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                            Delete
+                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,6 +104,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="center" style="margin-left: 40%">
+                    {{ $clothes->links() }}
                 </div>
             </div>
         </div>

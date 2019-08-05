@@ -10,10 +10,35 @@ use Illuminate\Http\Request;
 class ClothesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('admin:admin');
+    }
+
     public function index()
     {
-        $clothes = Clothes::all();
-        return view('admin.clothes.index', compact('clothes'));
+        $search = "";
+        $clothes = Clothes::paginate(2);
+        return view('admin.clothes.index', compact('clothes','search'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $clothes = Clothes::query()
+                ->where('id', '!=', 1)
+                ->paginate(2);
+            return view('admin.clothes.index',['clothes' => $clothes,'search' => $search]);
+        }
+        else{
+            $clothes = Clothes::query()
+                ->where('id', '!=', 1)
+                ->where('name','LIKE','%'.$search.'%')
+                ->paginate(2);
+            $clothes->appends($request->only('search'));
+            return view('admin.clothes.index',compact('clothes','search'));
+        }
     }
 
     public function create()

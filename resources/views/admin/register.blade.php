@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
@@ -172,6 +172,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
+                                    <a class="btn btn-danger" href="{{ route('admin.login') }}">back</a>
                                 </div>
                             </div>
                         </form>
@@ -181,3 +182,24 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+
+        new Cleave('#tel', {
+            phone: true,
+            delimiter: '-',
+            phoneRegionCode: 'TH'
+        });
+
+        new Cleave('#id_card',{
+            blocks: [1, 4, 5, 2, 1],
+            numericOnly: true,
+        });
+
+        //    new Cleave('#salary',{
+        //        numeral: true,
+        //        numeralThousandsGroupStyle: 'thousand'
+        //    });
+    </script>
+
+@endpush

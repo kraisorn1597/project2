@@ -60,7 +60,7 @@ Header
                 <li><a href="#services">โปรโมชั่น</a></li>
                 {{--<li><a href="#portfolio">Portfolio</a></li>--}}
                 {{--<li><a href="#contact">ติดต่อเรา</a></li>--}}
-                <li><a href="#contact">สมัครสมาชิก</a></li>
+                <li><a href="{{ route('register') }}">สมัครสมาชิก</a></li>
                 {{--<li><a href="#contact">เข้าสู่ระบบ</a></li>--}}
             </ul>
         </nav><!-- .main-nav -->
@@ -73,37 +73,99 @@ Header
 <section id="intro" class="clearfix">
     <div class="container">
         <div class="intro-img">
-            <div class="row">
-                <div class="col">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-                </div>
-                <label class="letter-white">ID :</label>
-                <div class="col-md-4">
-                    <div>
-                        <input id="username" name="username" type="text" class="form-control" required>
+                    <div class="form-group row offset-md-1">
+                        <div class="col">
+
+                        </div>
+                        <label for="username" class="col-md-4 col-form-label text-md-right letter-white offset-md-3">{{ __('ชื่อผู้ใช้ :') }}</label>
+                        <div class="col-md-4">
+                            <input id="username" type="text" autocomplete="username" name="username" class="form-control" value="{{ old('username') }}" required autofocus>
+
+                            @if ($errors->has('username'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
 
-                </div>
-                <label class="letter-white" style="margin-top: 10px">Password :</label>
-                <div class="col-md-4">
-                    <input id="username" name="username" type="text" class="form-control" style="margin-top: 10px" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
+                    <div class="form-group row offset-md-1">
+                        <div class="col">
 
-                </div>
-                <div class="col-md-1">
-                    <a class="btn login" style="margin-top: 10px">Login</a>
-                </div>
-                <div class="col-md-3">
+                        </div>
+                        <label for="password" class="col-md-4 col-form-label text-md-right letter-white offset-md-3">{{ __('รหัสผ่าน :') }}</label>
 
-                </div>
-            </div>
+                        <div class="col-md-4">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+{{--                    <div class="form-group row">--}}
+{{--                        <div class="col-md-6 offset-md-4">--}}
+{{--                            <div class="form-check">--}}
+{{--                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+
+{{--                                <label class="form-check-label" for="remember">--}}
+{{--                                    {{ __('Remember Me') }}--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+                    <div class="form-group row mb-0 offset-md-8" style="padding-left: 4%">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Login') }}
+                            </button>
+
+{{--                            @if (Route::has('password.request'))--}}
+{{--                                <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                    {{ __('Forgot Your Password?') }}--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
+                        </div>
+                    </div>
+                </form>
+{{--            <div class="row">--}}
+{{--                <div class="col">--}}
+
+{{--                </div>--}}
+{{--                <label class="letter-white">ID :</label>--}}
+{{--                <div class="col-md-4">--}}
+{{--                    <div>--}}
+{{--                        <input id="username" name="username" type="text" class="form-control" required>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col">--}}
+
+{{--                </div>--}}
+{{--                <label class="letter-white" style="margin-top: 10px">Password :</label>--}}
+{{--                <div class="col-md-4">--}}
+{{--                    <input id="username" name="username" type="text" class="form-control" style="margin-top: 10px" required>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col">--}}
+
+{{--                </div>--}}
+{{--                <div class="col-md-1">--}}
+{{--                    <a class="btn login" style="margin-top: 10px">Login</a>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
 
             <img src="{{ asset('newbiz/img/laundry1.png') }}" alt="" class="img-fluid">
         </div>

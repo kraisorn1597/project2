@@ -12,6 +12,8 @@
 - Date:
     - [date](#date)
     - [datePattern](#datepattern)
+    - [dateMin](#datemin)
+    - [dateMax](#datemax)
 - Time:
     - [time](#time)
     - [timePattern](#timepattern)
@@ -22,6 +24,7 @@
     - [numeralDecimalScale](#numeraldecimalscale)
     - [numeralDecimalMark](#numeraldecimalmark)
     - [numeralPositiveOnly](#numeralpositiveonly)
+    - [signBeforePrefix](#signbeforeprefix)
     - [stripLeadingZeroes](#stripleadingzeroes)
 - General config:
     - [blocks](#blocks)
@@ -164,6 +167,36 @@ new Cleave('.my-input', {
 
 You can also custom the [delimiter](#delimiter) for date
 
+### `dateMin`
+
+An date `String` value indicates the min date boundary.
+
+The date string format follows as ISO 8601 date format YYYY-MM-DD
+
+### `dateMax`
+
+An date `String` value indicates the max date boundary.
+
+The date string format follows as ISO 8601 date format YYYY-MM-DD
+
+```js
+new Cleave('.my-input', {
+    date: true,
+    dateMin: '2000-01-01',
+    dateMax: '2099-12-31',
+    datePattern: ['d', 'm', 'Y']
+});
+```
+
+```js
+new Cleave('.my-input', {
+    date: true,
+    dateMin: '18-01',
+    dateMax: '28-12',
+    datePattern: ['m', 'y']
+});
+```
+
 ## Time
 
 ### `time`
@@ -191,6 +224,19 @@ new Cleave('.my-input', {
 ['h', 'm', 's']: 14:56:37
 ['h', 'm']: 21:56
 ['s', 'm', 'h']: 37:56:14
+```
+
+### `timeFormat`
+
+A `String` value indicates time format
+
+**Default value** `'24'` Military time format
+
+```js
+new Cleave('.my-input', {
+    time: true,
+    timeFormat: '12'
+});
 ```
 
 You can also custom the [delimiter](#delimiter) for time
@@ -304,6 +350,24 @@ new Cleave('.my-input', {
 
 ```js
 // 1234.56
+```
+
+### `signBeforePrefix`
+
+A `Boolean` value indicates if the sign of the numeral should appear before the prefix.
+
+**Default value**: `false`
+
+```js
+new Cleave('.my-input', {
+    numeral: true,
+    prefix: '$',
+    signBeforePrefix: true
+});
+```
+
+```js
+// -$1234.56
 ```
 
 ### `stripLeadingZeroes`
@@ -496,7 +560,7 @@ It returns an object, which has a target key, value is the formatted and raw inp
 new Cleave('.my-input', {
     creditCard: true,
     onValueChanged: function (e) {
-        // e.target = { value: '5000-1234', rawValue: '51001234' }
+        // e.target = { value: '5100-1234', rawValue: '51001234' }
     }
 });
 ```
