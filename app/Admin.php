@@ -37,6 +37,7 @@ class Admin extends Authenticatable
         'address',
         'role_id',
         'salary',
+        'image',
     ];
 
     /**

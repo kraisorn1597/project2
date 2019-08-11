@@ -3,585 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="56a98e04-bb23-40ad-b03e-7b0e2a2fb5e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ClothesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ClothesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/ISSUE_TEMPLATE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/codacy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ac.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ae.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.af.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ai.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.al.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.am.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.as.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.at.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.au-cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.au.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.aw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.az.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ba.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.be.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.br.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.by.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.bz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ci.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.co.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.cz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.dj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.dk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.dm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.do.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.dz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.eg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.eh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.er.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ga.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.gy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.hk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.hn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ht.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.i18n.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.il.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.im.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.io.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.iq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ir.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.is.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.je.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.jm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.jo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.jp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ke.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.km.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.kz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.la.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.li.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ls.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.lv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ma.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.md.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.me.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.my.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.mz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.na.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ne.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ng.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ni.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.no.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.np.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.nz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.om.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ph.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.pw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.py.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.qa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.re.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.rs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.rw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.se.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.si.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.so.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ss.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.st.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.sz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.td.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.th.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.to.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.tz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ua.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ug.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.us.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.uy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.uz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.va.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.vc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ve.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.vg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.vi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.vn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.vu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.wf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ws.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.ye.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.yt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.za.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.zm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/addons/cleave-phone.zw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-angular.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-angular.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-react-node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-react-node.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-react.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave-react.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/dist/cleave.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/angularjs-directive-usage.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/constructor.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/doc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/js-api.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/not-in-the-plan.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/options.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/phone-lib-addon.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/public-methods.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/doc/reactjs-component-usage.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulp-tasks/addon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulp-tasks/browserify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulp-tasks/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulp-tasks/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulp-tasks/webpack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/react.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/Cleave.angular.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/Cleave.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/Cleave.react.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ac.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ae.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.af.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ai.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.al.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.am.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.as.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.at.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.au.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.aw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.az.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ba.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.be.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.br.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.by.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.bz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ci.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.co.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.cz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.dj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.dk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.dm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.do.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.dz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.eg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.eh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.er.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ga.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.gy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.hk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.hn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ht.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.i18n.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.il.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.im.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.io.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.iq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ir.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.is.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.je.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.jm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.jo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.jp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ke.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.km.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.kz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.la.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.li.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ls.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.lv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ma.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.md.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.me.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.my.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.mz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.na.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ne.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ng.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ni.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.no.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.np.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.nz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.om.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ph.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.pw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.py.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.qa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.re.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.rs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.rw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.se.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.si.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.so.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ss.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.st.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.sz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.td.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.th.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.to.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.tz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ua.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ug.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.us.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.uy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.uz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.va.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.vc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ve.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.vg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.vi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.vn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.vu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.wf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ws.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.ye.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.yt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.za.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.zm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/addons/phone-type-formatter.zw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/build/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/common/DefaultProperties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/shortcuts/CreditCardDetector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/shortcuts/DateFormatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/shortcuts/NumeralFormatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/shortcuts/PhoneFormatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/shortcuts/TimeFormatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/src/utils/Util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/addons/phone-type-formatter.i18n.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/credit-card.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/custom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/date.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/numeral.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/phone.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/runner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/browser/time.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/credit-card.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/date.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/numeral.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/phone.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/time.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/fixtures/util.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/CreditCardDetector_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/DateFormatter_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/NumeralFormatter_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/PhoneFormatter_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/TimeFormatter_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/test/unit/Util_spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cleave.js/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/clothes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/clothes/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/employee/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/employee/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/employee/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/employee/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/main_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/main_dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -599,35 +47,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/index2.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/employee/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2749">
-              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+            <state relative-caret-position="3570">
+              <caret line="210" column="7" selection-start-line="210" selection-start-column="7" selection-end-line="218" selection-end-column="9" />
+              <folding>
+                <element signature="e#562#586#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="22" selection-start-column="22" selection-end-column="22" />
+            <state relative-caret-position="495">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/register.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2992">
-              <caret line="176" column="34" lean-forward="true" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
+            <state relative-caret-position="359">
+              <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/main.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-287">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -638,20 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Role.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/login.blade.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticate.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/employee/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
-        <option value="$PROJECT_DIR$/public/fontawesome-free/css/all.css" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_07_04_094558_create_admin_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/backend/AdminController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/backend/ClothesController.php" />
@@ -659,36 +100,50 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/backend/UserController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_25_090956_create_clothes_table.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/clothes/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Admin.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Clothes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/clothes/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ClothesRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/admin/clothes/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/ClothesController.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/routes/admin.php" />
-        <option value="$PROJECT_DIR$/resources/views/index2.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/main_dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/employee/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/employee/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/routes/admin.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/index2.blade.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/lang/th/auth.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_11_081824_add_column_image_to_users_table.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/script.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_11_091054_add_column_image_to_admin_table.php" />
+        <option value="$PROJECT_DIR$/app/Admin.php" />
+        <option value="$PROJECT_DIR$/public/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/admin/register.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/employee/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" />
       </list>
     </option>
   </component>
@@ -780,9 +235,9 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="213" />
+    <option name="y" value="15" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -792,6 +247,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -808,18 +264,42 @@
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Requests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project2" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
@@ -830,6 +310,12 @@
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
@@ -849,31 +335,50 @@
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project2" type="b2602c69:ProjectViewProjectNode" />
               <item name="project2" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project2" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portal" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -886,11 +391,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project2\public\js" />
+      <recent name="C:\xampp\htdocs\project2\public\img" />
+      <recent name="C:\xampp\htdocs\project2\resources\lang" />
       <recent name="C:\xampp\htdocs\project2\resources\views\layouts" />
       <recent name="C:\xampp\htdocs\project2\public" />
-      <recent name="C:\xampp\htdocs\project2\resources\views\admin\clothes" />
-      <recent name="C:\xampp\htdocs\project2\resources\views\admin\users" />
-      <recent name="C:\xampp\htdocs\project2\resources\views\admin\employee" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\project2\app\Http\Controllers\Backend" />
@@ -949,18 +454,23 @@
       <workItem from="1564040728357" duration="7753000" />
       <workItem from="1564728698382" duration="9630000" />
       <workItem from="1564914790001" duration="17751000" />
-      <workItem from="1564994121045" duration="12240000" />
+      <workItem from="1564994121045" duration="13313000" />
+      <workItem from="1565071556327" duration="2477000" />
+      <workItem from="1565256960779" duration="10471000" />
+      <workItem from="1565509666329" duration="6197000" />
+      <workItem from="1565517128343" duration="7443000" />
+      <workItem from="1565531100312" duration="8815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167026000" />
+    <option name="totallyTimeSpent" value="203502000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24508321" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2375189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -981,7 +491,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23373677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28366113" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -994,7 +504,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33878887" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33878887" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1017,284 +527,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/Notifiable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_04_094558_create_admin_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_25_090956_create_clothes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#23#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/clothes/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
-          <folding>
-            <element signature="e#441#462#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ClothesRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/show/clothes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="67" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/admin/css/sb-admin-2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10693" selection-start-line="10693" selection-end-line="10698" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#23#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Clothes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/clothes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="109" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/ClothesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#48#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="74" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="e#48#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding>
-            <element signature="e#48#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#48#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#39#51#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="155" column="3" selection-start-line="155" selection-start-column="3" selection-end-line="162" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="e#46#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Role.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/cleave.js/doc/doc.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/clothes/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="183" selection-start-line="183" selection-end-line="203" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1305,27 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="181" column="8" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="180" column="8" lean-forward="true" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/index2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2749">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -1333,53 +548,353 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/sidebar_dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="88" selection-end-column="109" />
+          <folding>
+            <element signature="e#421#442#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="141" selection-start-line="17" selection-start-column="141" selection-end-line="17" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="101" column="141" selection-start-line="101" selection-start-column="141" selection-end-line="101" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1732">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/th/pagination.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/employee/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="202" column="13" lean-forward="true" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/th/passwords.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="30" selection-start-line="18" selection-end-line="19" selection-end-column="79" />
+        <state relative-caret-position="323">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/main_dashboard.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/th/auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="4551" selection-start-line="4551" selection-end-line="4563" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery-3.3.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery-3.3.1.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/script.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="70" selection-start-line="1" selection-start-column="70" selection-end-line="1" selection-end-column="70" />
+        <state relative-caret-position="34">
+          <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+    <entry file="file://$PROJECT_DIR$/storage/app/public/uploads/BclfDy0WTzq4LtzKu11NnSSgsZga8L6dnoyWoffn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        <state relative-caret-position="410">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="53" column="57" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_11_081824_add_column_image_to_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_11_091054_add_column_image_to_admin_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="106" column="1" lean-forward="true" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="176" column="34" lean-forward="true" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
+        <state relative-caret-position="-119">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="e#539#563#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/navbar_dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2754">
+          <caret line="162" column="27" lean-forward="true" selection-start-line="162" selection-start-column="27" selection-end-line="162" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/main_dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/script.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/th/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/ClothesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/employee/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="214" column="7" selection-start-line="214" selection-start-column="7" selection-end-line="235" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ClothesRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2890">
+          <caret line="10" column="161" selection-start-line="10" selection-start-column="161" selection-end-line="10" selection-end-column="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding>
+            <element signature="e#48#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="852">
+          <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret line="15" column="56" lean-forward="true" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+          <folding>
+            <element signature="e#513#537#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="e#48#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/EmployeeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+          <folding>
+            <element signature="e#48#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/employee/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3570">
+          <caret line="210" column="7" selection-start-line="210" selection-start-column="7" selection-end-line="218" selection-end-column="9" />
+          <folding>
+            <element signature="e#562#586#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/EmployeeRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserEditRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-287">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

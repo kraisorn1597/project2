@@ -6,38 +6,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Edit User') }}</div>
+
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.employee.update',[array_get($data,'id')]) }}" style="padding: 40px" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.update',[$data->id]) }}" style="padding: 40px">
                             @csrf
-                            <div class="form-group">
-                                <label>รูปโปร์ไฟล์</label>
-                                <div class="form-group">
-                                    <div id="divShowImg">
-                                        <a id="linkProduct"
-                                           href="{{ ($data->image == 'NULL') ? '' : asset('storage/'.$data->image) }}"
-                                           target="blank">
-                                            <img class="rounded-circle" id="previewProduct" style="width: 160px;height: 160px"
-                                                 src="{{ ($data->image == 'NULL') ? 'https://via.placeholder.com/180x120.png?text=No%20Image'
-                                     : asset('storage/'.$data->image) }}">
-                                        </a>
-                                        <div style="margin-left: 8rem"><input class="btn btn-sm btn-warning " type="button" value="Clear" onclick="clearProduct()"></div>
-
-                                        @if ($errors->has('image'))
-                                            <span style="color: rgba(226,20,17,0.77);font-size: 13px">
-                                            <strong>{{ $errors->first('image') }}</strong>
-                                        </span>
-                                        @endif
-
-                                    </div>
-                                </div>
-                                <input  type="file" accept="image/jpeg, image/png" onchange="readProduct(this);" id="fileProduct"
-                                        name="image">
-                                <p class="help-block" style="font-size: 14px">
-                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
-                                </p>
-                            </div>
-
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="username" class="col-form-label text-md-right">{{ __('Username :') }}</label>
@@ -162,34 +134,11 @@
                                     <label for="address" class="col-form-label text-md-right">Address :</label>
 
                                     <input  id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                              name="address" value="{{ $data->address  }}"autofocus>
+                                            name="address" value="{{ $data->address  }}"autofocus>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Role </label>
-                                <select class="form-control" name="role_id">
-                                    @foreach ($roles as $role)
-                                        <option
-                                                {{ (old("role_id") == $role->id ? "selected":"") }} value="{{ $role->id }}">{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="salary" class="col-form-label text-md-right">Salary :</label>
-
-                                    <input id="salary" type="text" class="form-control{{ $errors->has('salary') ? ' is-invalid' : '' }}"
-                                           name="salary" value="{{ $data->salary }}"  autofocus>
-
-                                    @if ($errors->has('salary'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('salary') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -199,7 +148,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Save
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.employee.index') }}">Back</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">Back</a>
                                 </div>
                             </div>
                         </form>
@@ -209,48 +158,20 @@
         </div>
     </div>
 @endsection
-@push('script')
-    <script type="text/javascript">
+{{--@push('script')--}}
+{{--    <script type="text/javascript">--}}
 
-        function readProduct(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#falseinput').attr('src', e.target.result);
-                    $('#previewProduct').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-                $('#linkProduct').removeAttr('href');
-            }
-        }
-        function clearProduct() {
-            var image = '{{ $data->image }}';
-            if (image == 'NULL') {
-                $('#previewProduct').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
-            }
-            else {
-                $('#previewProduct').attr('src', "{{ asset('storage/'.$data->image) }}");
-                $('#linkProduct').attr('href', "{{ asset('storage/'.$data->image) }}");
-            }
-            $('#fileProduct').val(null);
-        }
+{{--        new Cleave('#tel', {--}}
+{{--            phone: true,--}}
+{{--            delimiter: '-',--}}
+{{--            phoneRegionCode: 'TH'--}}
+{{--        });--}}
 
-        new Cleave('#tel', {
-            phone: true,
-            delimiter: '-',
-            phoneRegionCode: 'TH'
-        });
+{{--        new Cleave('#id_card',{--}}
+{{--            blocks: [1, 4, 5, 2, 1],--}}
+{{--            numericOnly: true,--}}
+{{--        });--}}
+{{--    </script>--}}
 
-        new Cleave('#id_card',{
-            blocks: [1, 4, 5, 2, 1],
-            numericOnly: true,
-        });
-
-        //    new Cleave('#salary',{
-        //        numeral: true,
-        //        numeralThousandsGroupStyle: 'thousand'
-        //    });
-    </script>
-
-@endpush
+{{--@endpush--}}
 

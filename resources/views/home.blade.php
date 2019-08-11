@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <img src="{{ asset('storage/'.Auth::user()->image) }}">
+{{--                 {{ Auth::user()->image }}--}}
                 </div>
             </div>
         </div>

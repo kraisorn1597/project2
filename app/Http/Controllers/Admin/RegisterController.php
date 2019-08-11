@@ -69,6 +69,7 @@ class RegisterController extends Controller
             'birthday' => ['required'],
             'address' => ['required','string','max:255'],
 //            'salary' => ['nullable','string','max:100'],
+            'image' => ['required', 'file', 'image', 'max:5000'],
         ]);
     }
 
@@ -80,7 +81,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        dd($data);
         return Admin::create([
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
@@ -94,6 +94,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'role_id' => $data['role_id'],
 //            'salary' => $data['salary'],
+            'image' => $data['image']->store('uploads','public'),
         ]);
     }
 }

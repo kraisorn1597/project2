@@ -34,6 +34,7 @@ class UserRequest extends FormRequest
             'tel' => 'required|string|max:20',
             'birthday' => 'required',
             'address' => 'required|string|max:255',
+            'image' => ['required', 'file', 'image', 'max:5000'],
         ];
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class UserEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,12 @@ class EmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-//            'username' => 'required|string|max:50|unique:admin'.$this->user->id,
-            'username' => "required|string|max:50|unique:admin,username",
-//            'password' => 'required|string|min:6|confirmed',
-//            'email' => 'required|string|email|max:255|unique:admin'.$this->user->id,
-            'email' => 'required|email|max:255',
+//        $password = $this->request->all();
+
+        $rules = [
+            'username' => 'required|string|max:40|unique:users,username,'. $this->route('id'),
+            'password' => 'nullable|string|min:6|confirmed',
+            'email' => 'required|string|max:255|unique:users,email,'. $this->route('id'),
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'gender' => 'required|string|max:50',
@@ -36,15 +36,26 @@ class EmployeeRequest extends FormRequest
             'tel' => 'required|string|max:20',
             'birthday' => 'required',
             'address' => 'required|string|max:255',
-            'salary' => 'nullable|string|max:100',
         ];
+
+//        if (!empty($password['password'])) {
+//            $rules += ['password' => 'required|string|min:6|confirmed',];
+//        };
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
+        return $rules;
     }
 
     public function messages()
     {
         return [
             'username.required' => 'กรุณากรอก Username',
+            'username.unique' => 'ชื่อผู้ใช้นี้ มีผู้อื่นใช้งานแล้ว',
+            'password.required' => 'กรุณากรอก password',
             'email.required' => 'กรุณากรอก Email',
+            'email.unique' => 'Email นี้มีผู้อื่นใช้งานแล้ว',
             'first_name.required'  => 'กรุณากรอก First Name',
             'last_name.required'  => 'กรุณากรอก Last Name',
             'gender.required'  => 'กรุณาเลือกเพศ',
@@ -52,8 +63,6 @@ class EmployeeRequest extends FormRequest
             'tel.required'  => 'กรุณากรอก Phone Number',
             'birthday.required'  => 'กรุณากรอกวันเกิด',
             'address.required'  => 'กรุณากรอกที่อยู่',
-//            'salary.required'  => 'กรุณากรอกจำนวนเงิน',
-
         ];
     }
 }

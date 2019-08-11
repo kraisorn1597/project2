@@ -84,3 +84,24 @@
     background-image: linear-gradient(180deg, #36b9cc 10%, #36b9cc 100%);
     background-size: cover;
 }
+.card-admin {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.15rem;
+    max-width: 500px;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

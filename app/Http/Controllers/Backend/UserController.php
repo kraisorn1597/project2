@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     //
@@ -30,7 +33,6 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-//        dd($search);
         if ($search == ""){
             $users = User::paginate(2);
             return view('admin.users.index',compact('users','search'));
@@ -58,6 +60,7 @@ class UserController extends Controller
             'tel' => $request['tel'],
             'birthday' => $request['birthday'],
             'address' => $request['address'],
+            'image' => $request['image']->store('uploads','public'),
         ]);
         return redirect('admin/users/index')->with('success','เพิ่มสมาชิกเรียบร้อย');
     }
@@ -68,54 +71,37 @@ class UserController extends Controller
         return view('admin.users.edit', compact('data'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UserEditRequest $request, $id)
     {
-        $editAdmin = [
-            'username' => $request['username'],
-            'email' => $request['email'],
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'gender' => $request['gender'],
-            'id_card' => $request['id_card'],
-            'tel' => $request['tel'],
-            'birthday' => $request['birthday'],
-            'address' => $request['address'],
-        ];
+        $user = User::find($id);
+        $user->username = $request['username'];
+        $user->email = $request['email'];
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->gender = $request['gender'];
+        $user->id_card = $request['id_card'];
+        $user->tel = $request['tel'];
+        $user->birthday = $request['birthday'];
+        $user->address = $request['address'];
 
-        $this->validate($request, array(
-
-            'username' => "required|string|max:50|unique:admin,username,$id",
-            'password' => 'nullable|string|min:6|confirmed',
-            'email' => "required|email|max:255|unique:admin,email,$id",
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'gender' => 'required|string|max:50',
-            'id_card' => 'required|string|max:20',
-            'tel' => 'required|string|max:20',
-            'birthday' => 'required',
-            'address' => 'required|string|max:255',
-        ));
-
-        $admin = User::find($id);
-        if (!empty($request->password))
-        {
+        if (!empty($request->password)) {
             $newPassword = Hash::make($request['password']);
-            $admin->password = $newPassword;
+            $user->password  = $newPassword;
         }
-//        $admin->save();
-        $admin->update($editAdmin);
+        if (isset($request['image'])){
+            Storage::delete('public/'.$user->image);
+            $user->image = ($request['image'])->store('uploads','public');
+        }
+
+        $user->update();
         return redirect('admin/users/index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
-//        return redirect()->back()->withSuccess('แก้ไขข้อมูลเรียบร้อย');
     }
 
     public function destroy($id)
     {
-        $admin = User::find($id);
-
-        $admin->forcedelete();
-
-//        Storage::delete();
-
+        $user = User::find($id);
+        $user->forcedelete();
+        Storage::delete('public/'.$user->image);
         return redirect()->route('admin.users.index')->with('deleted','ลบพนักงานเรียบร้อย');
     }
 }

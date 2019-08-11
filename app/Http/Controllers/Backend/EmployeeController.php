@@ -72,12 +72,12 @@ class EmployeeController extends Controller
             'address' => $request['address'],
             'role_id' => $request['role_id'],
             'salary' => $request['salary'],
+            'image' => $request['image']->store('uploads','public'),
         ]);
         return redirect('admin/employee/index')->with('success','เพิ่มพนักงานเรียบร้อย');
     }
     protected function validateCreate(array $data)
     {
-//        dd($data);
         return Validator::make($data, [
             'username' => ['required', 'string', 'max:50', 'unique:admin'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
@@ -90,6 +90,7 @@ class EmployeeController extends Controller
             'birthday' => ['required'],
             'address' => ['required','string','max:255'],
             'salary' => ['nullable','string','max:100'],
+            'image' => ['required', 'file', 'image', 'max:5000'],
         ]);
     }
 
@@ -114,11 +115,9 @@ class EmployeeController extends Controller
             'address' => $request['address'],
             'salary' => $request['salary'],
         ];
-
-        $this->validate($request, array(
-
+        $data = [
             'username' => "required|string|max:50|unique:admin,username,$id",
-            'password' => 'nullable|string|min:6|confirmed',
+//            'password' => 'nullable|string|min:6|confirmed',
             'email' => "required|email|max:255|unique:admin,email,$id",
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
@@ -128,67 +127,36 @@ class EmployeeController extends Controller
             'birthday' => 'required',
             'address' => 'required|string|max:255',
             'salary' => 'nullable|string|max:100',
-        ));
+            ];
+
+        if (!empty($request['image'])) {
+            $data += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
+        $this->validate($request, $data);
+
 
         $admin = Admin::find($id);
+
+        if(isset($request['image']))
+        {
+            Storage::delete('public/'.$admin->image);
+            $editAdmin += [ 'image' => ($request['image'])->store('uploads','public')];
+        }
+
         if (!empty($request->password))
         {
             $newPassword = Hash::make($request['password']);
             $admin->password = $newPassword;
         }
-//        $admin->save();
         $admin->update($editAdmin);
         return redirect('admin/employee/index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
-//        return redirect()->back()->withSuccess('แก้ไขข้อมูลเรียบร้อย');
     }
-
-    public function validateEdit($data, $admin)
-    {
-        $rules = [
-//            'username' => ['required', 'string','unique:admin','max:50'.$id],
-            'username' => ['required', 'string', Rule::unique('admin')->ignore($admin),],
-//            'email' => ['required', 'string','unique:admin','max:60'.$id],
-            'email' => ['required', 'string', Rule::unique('admin')->ignore($admin),],
-            'first_name' => ['required', 'string', 'max:50'],
-            'last_name' => ['required', 'string', 'max:50'],
-            'gender' => ['required', 'string', 'max:50'],
-            'id_card' => ['required','string','max:20'],
-            'tel' => ['required','string','max:20'],
-            'birthday' => ['required'],
-            'address' => ['required','string','max:255'],
-            'salary' => ['nullable','string','max:100'],
-        ];
-        $customAttributes = [
-            'username' => 'Username',
-            'email' => 'Email',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'gender' => 'Gender',
-            'id_card' => 'ID Card',
-            'tel' => 'Phone Number',
-            'birthday' => 'Birthday',
-            'address' => 'Address',
-            'salary' => 'Salary',
-        ];
-
-        if (!empty($data['password'])) {
-            $rules += ['password' => 'required|string|min:6|confirmed',];
-            $customAttributes += ['password' => 'Password',];
-        };
-        Validator::make($data, $rules, [], $customAttributes)->validate();
-
-    }
-
     public function destroy($id)
     {
-//        dd($id);
         $admin = Admin::find($id);
-//        forceDelete
-//        $admin->delete();
         $admin->forcedelete();
-
-//        Storage::delete();
-
+        Storage::delete('public/'.$admin->image);
         return redirect()->route('admin.employee.index')->with('deleted','ลบพนักงานเรียบร้อย');
     }
 
