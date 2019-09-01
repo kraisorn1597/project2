@@ -3,8 +3,8 @@
     <head>
         <title> @yield('title') </title>
 {{--        <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">--}}
-        <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('img/laundry1.png') }}" rel="icon">
+        <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/bootstrap') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -12,15 +12,15 @@
     </head>
     <body id="page-top">
     <div id="wrapper">
-        @include('admin.partials.sidebar_dashboard')
+        @include('backend-users.partials.sidebar_dashboard')
         <div  id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('admin.partials.navbar_dashboard')
+                @include('backend-users.partials.navbar_dashboard')
                 <section>
                     @yield('content')
                 </section>
             </div>
-            @include('admin.partials.footer_dashboard')
+            @include('backend-users.partials.footer_dashboard')
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
@@ -40,20 +40,20 @@
                 <div class="modal-body">เลือก "ออกจากระบบ" หากคุณต้องการออกจากระบบ</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
-                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
+                    <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('ออกจากระบบ') }}
                     </a>
 
-                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    @include('admin.layouts.script')
+    @include('backend-users.layouts.script')
     @stack('script')
     </body>
 </html>

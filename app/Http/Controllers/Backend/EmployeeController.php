@@ -114,6 +114,7 @@ class EmployeeController extends Controller
             'birthday' => $request['birthday'],
             'address' => $request['address'],
             'salary' => $request['salary'],
+            'role_id' => $request['role_id'],
         ];
         $data = [
             'username' => "required|string|max:50|unique:admin,username,$id",

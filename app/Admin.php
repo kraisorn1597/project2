@@ -17,10 +17,7 @@ class Admin extends Authenticatable
      *
      * @var array
      */
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
+
 
     protected $table = 'admin';
 
@@ -48,6 +45,11 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 
     /**
      * The attributes that should be cast to native types.

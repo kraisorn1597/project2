@@ -28,7 +28,18 @@ Route::get('/index2', function () {
 Route::get('/index3', function () {
     return view('index3');
 });
+Route::get('/index4', function () {
+    return view('frontend.index.index');
+});
 
+Route::group([
+    'prefix' => 'users',
+    'as' => 'users.'
+], function (){
+    Route::get('/profile', 'BackendUser\BackendUserController@profile')->name('profile');
+    Route::get('/edit', 'BackendUser\BackendUserController@edit')->name('edit');
+    Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
+});
 
 Auth::routes();
 

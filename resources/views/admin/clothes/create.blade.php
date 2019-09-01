@@ -1,5 +1,5 @@
 @extends('admin.layouts.main_dashboard')
-
+@section('title', 'Create Clothes')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

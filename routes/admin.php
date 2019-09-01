@@ -10,8 +10,9 @@ Route::group([
     Route::post('/logout', 'Admin\LoginController@logout')->name('logout');
     Route::get('/register', 'Admin\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Admin\RegisterController@register');
+    Route::get('profile', 'Backend\AdminController@profile')->name('profile');
     Route::get('/edit', 'Backend\AdminController@edit')->name('edit');
-    Route::post('{data}/update', 'Backend\AdminController@update')->name('update');
+    Route::post('{id}/update', 'Backend\AdminController@update')->name('update');
     Route::get('password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::post('password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'Admin\ResetPasswordController@showResetForm')->name('password.reset');

@@ -61,6 +61,24 @@
     font-family: 'Prompt', sans-serif;
     font-size: 40px;
 }
+.topic-red {
+    text-align: left;
+    color: red;
+    font-family: 'Prompt', sans-serif;
+    font-size: 25px;
+}
+.topic-black {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 22px;
+}
+.topic-gray {
+    text-align: left;
+    color: gray;
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+}
 
 .login {
     color: #fff;
@@ -73,7 +91,7 @@
     font-size: 40px;
 }
 .center{
-    position: center;
+    position: relative;
     top: 50%;
     left: 50%;
 }
@@ -84,6 +102,13 @@
     background-image: linear-gradient(180deg, #36b9cc 10%, #36b9cc 100%);
     background-size: cover;
 }
+.bg-blue {
+    background-color: blue;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #36b9cc), to(#36b9cc));
+    background-image: linear-gradient(180deg, #36b9cc 10%, #36b9cc 100%);
+    background-size: cover;
+}
+
 .card-admin {
     position: relative;
     display: -ms-flexbox;
@@ -104,4 +129,13 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.inner_position_right {
+    position:absolute;
+    background-color:#FFFF99;
+    height:100%;
+    width:50px;
+    top:0px;
+    z-index:999;
 }
