@@ -17,6 +17,11 @@
                 <li><a href="#contact">ติดต่อเรา</a></li>
                 <li><a href="{{ route('register') }}">สมัครสมาชิก</a></li>
                 {{--<li><a href="#contact">เข้าสู่ระบบ</a></li>--}}
+                @if (Route::has('login'))
+                        @auth
+                        <li><a href="{{ url('/home') }}">Home</a></li>
+                        @endauth
+                @endif
             </ul>
         </nav><!-- .main-nav -->
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Admin;
 use App\Http\Requests\EmployeeEditRequest;
 use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.home');
+        $users = User::all();
+        return view('admin.home', compact('users'));
     }
 
     public function profile()

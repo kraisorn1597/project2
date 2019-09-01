@@ -7,7 +7,7 @@
 {{--            <i class="fas fa-laugh-wink"></i>--}}
             <i class="fas fa-calendar"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">ใช้บริการ <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">ใช้บริการ <sup></sup></div>
     </a>
 
     <!-- Divider -->

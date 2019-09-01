@@ -79,6 +79,10 @@
     font-family: 'Prompt', sans-serif;
     font-size: 20px;
 }
+.topic-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
 
 .login {
     color: #fff;
