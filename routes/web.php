@@ -32,6 +32,10 @@ Route::get('/index4', function () {
     return view('frontend.index.index');
 });
 
+Route::get('/contact-us', function () {
+    return view('frontend.partials.contact-us');
+});
+
 Route::group([
     'prefix' => 'users',
     'as' => 'users.'

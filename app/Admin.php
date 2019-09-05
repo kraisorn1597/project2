@@ -51,6 +51,11 @@ class Admin extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function category()
+    {
+        return $this->hasMany(ArticlesCategory::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

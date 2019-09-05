@@ -55,6 +55,34 @@ Route::group([
         Route::post('{id}/clothes/update', 'Backend\ClothesController@update')->name('update');
         Route::delete('{id}/clothes/delete', 'Backend\ClothesController@destroy')->name('delete');
     });
+    Route::group([
+        'prefix' => 'promotion',
+        'as' => 'promotion.'
+    ], function (){
+        Route::get('/index', 'Backend\PromotionController@getPromotion')->name('index');
+        Route::post('/post', 'Backend\PromotionController@post')->name('post');
+    });
+    Route::group([
+        'prefix' => 'articles',
+        'as' => 'articles.'
+    ], function (){
+        Route::get('/index', 'Backend\ArticlesController@index')->name('index');
+        Route::get('/create', 'Backend\ArticlesController@create')->name('create');
+        Route::post('/create', 'Backend\ArticlesController@store')->name('store');
+        Route::get('{id}/articles/edit', 'Backend\ArticlesController@edit')->name('edit');
+        Route::post('{id}/articles/update', 'Backend\ArticlesController@update')->name('update');
+    });
+    Route::group([
+        'prefix' => 'articlescategory',
+        'as' => 'articlescategory.'
+    ], function (){
+        Route::get('/index', 'Backend\ArticlesCategoryController@index')->name('index');
+        Route::get('/create', 'Backend\ArticlesCategoryController@create')->name('create');
+        Route::post('/create', 'Backend\ArticlesCategoryController@store')->name('store');
+        Route::get('{id}/articlescategory/edit', 'Backend\ArticlesCategoryController@edit')->name('edit');
+        Route::post('{id}/articlescategory/update', 'Backend\ArticlesCategoryController@update')->name('update');
+        Route::delete('{id}/articlescategory/delete', 'Backend\ArticlesCategoryController@destroy')->name('delete');
+    });
 });
 
 

@@ -111,9 +111,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="center" style="margin-left: 40%">
-                    {{ $users->links() }}
-                </div>
+            </div>
+            <div class="flex-center" style="margin-top: 0.3%">
+                {{ $users->links() }}
             </div>
         </div>
     </div>

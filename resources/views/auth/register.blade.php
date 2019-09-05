@@ -172,7 +172,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
-                                <a class="btn btn-danger" href="{{ url('index2') }}">back</a>
+                                <a class="btn btn-danger" href="{{ url('index4') }}">back</a>
                             </div>
                         </div>
                     </form>

@@ -120,5 +120,34 @@
         {{--</div>--}}
     </li>
     @endif
-    
+
+    <hr class="sidebar-divider">
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item">
+            <a class="nav-link" href=" {{ route('admin.promotion.index') }}" data-toggle="collapse show" data-target="#collapsesix" aria-expanded="true"
+               aria-controls="collapsesix">
+                <i class="fas fa-dumpster"></i>
+                <span>โปรโมชั่น</span>
+            </a>
+        </li>
+    @endif
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item">
+            <a class="nav-link" href=" {{ route('admin.articlescategory.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
+               aria-controls="collapse7">
+                <i class="fas fa-dumpster"></i>
+                <span>ประเภทข่าวสาร</span>
+            </a>
+        </li>
+    @endif
+
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item">
+            <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapseseven" aria-expanded="true"
+               aria-controls="collapseseven">
+                <i class="fas fa-dumpster"></i>
+                <span>ข่าวสาร</span>
+            </a>
+        </li>
+    @endif
 </ul>

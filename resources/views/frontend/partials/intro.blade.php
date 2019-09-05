@@ -53,21 +53,41 @@
             @endif
             <img src="{{ asset('newbiz/img/laundry1.png') }}" alt="" class="img-fluid">
         </div>
-        <div class="card">
+        <div class="card text-center">
             <div class="card-header">
-                <h6 class="topic4">โปรโมชั่น</h6>
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">ทั้งหมด</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">โปรโมชั่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ข่าวสาร</a>
+                    </li>
+                </ul>
             </div>
             <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <div class="col-md-12 col-lg-12 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i style="color:#41cf2e;"></i></div>
-                            <h4 class="title topic4"><a href="">โปรโมชั่นรายเดือน</a></h4>
-                            <p class="description topic4">ซักเกิน 90 กิโลขึ้นไปมีส่วนลด 5 %</p>
-                        </div>
-                    </div>
-                </blockquote>
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
+{{--        <div class="card">--}}
+{{--            <div class="card-header">--}}
+{{--                <h6 class="topic4">โปรโมชั่น</h6>--}}
+{{--            </div>--}}
+{{--            <div class="card-body">--}}
+{{--                <blockquote class="blockquote mb-0">--}}
+{{--                    <div class="col-md-12 col-lg-12 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">--}}
+{{--                        <div class="box">--}}
+{{--                            <div class="icon"><i style="color:#41cf2e;"></i></div>--}}
+{{--                            <h4 class="title topic4"><a href="">โปรโมชั่นรายเดือน</a></h4>--}}
+{{--                            <p class="description topic4">ซักเกิน 90 กิโลขึ้นไปมีส่วนลด 5 %</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </blockquote>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 </section><!-- #intro -->
