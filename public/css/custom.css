@@ -80,6 +80,13 @@
     font-size: 60px;
 }
 
+.topic-white-size25 {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 25px;
+}
+
 .topic-gray {
     text-align: left;
     color: gray;

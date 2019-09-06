@@ -46,12 +46,6 @@ class ArticlesCategoryController extends Controller
         return redirect('admin/articlescategory/index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ArticlesCategory  $articlesCategory
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $articlescategory = ArticlesCategory::find($id);

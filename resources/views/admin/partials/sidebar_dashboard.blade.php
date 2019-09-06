@@ -122,6 +122,10 @@
     @endif
 
     <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+        <p class="topic-white-size25">หน้าบ้าน</p>
+    </div>
+
     @if(auth()->user()->role_id == 1 )
         <li class="nav-item">
             <a class="nav-link" href=" {{ route('admin.promotion.index') }}" data-toggle="collapse show" data-target="#collapsesix" aria-expanded="true"

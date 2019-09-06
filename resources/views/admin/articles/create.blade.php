@@ -1,5 +1,5 @@
 @extends('admin.layouts.main_dashboard')
-@section('title', 'Create Employee')
+@section('title', 'Create Articles')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -10,17 +10,28 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.articles.store') }}" style="padding: 40px" enctype="multipart/form-data">
                             @csrf
+                            <div class="form-group">
+                                <label>ประเภทข่าวสาร <span style="color:red">*</span></label>
+
+
+                                    <select class="form-control" name="articles_category_id">
+                                        <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>
+                                        @foreach ($articlescategory as $articlescategories)
+                                            <option
+                                                    {{ (old("articles_category_id") == $articlescategories->id ? "selected":"") }} value="{{ $articlescategories->id }}">{{ $articlescategories->name }}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
                             <div class="box-body">
                                 <div class="form-group ">
                                     <label>ชื่อข่าวสาร <span style="color:red">*</span></label>
                                     <input type="text" class="form-control" name="title"
-                                           placeholder="Title" value="">
+                                           placeholder="Title">
                                 </div>
                                 <div class="form-group">
                                     <label>รายละเอียดสั้น <span style="color:red">*</span></label>
-                                    <textarea class="form-control ckeditor" id="editor" name="short_description"
-                                              placeholder="Short Description"
-                                              rows="4"></textarea>
+                                    <input type="text" class="form-control" id="editor" name="short_description"
+                                              placeholder="Short Description">
                                 </div>
                                 <div class="form-group">
                                     <label>รายละเอียด <span style="color:red">*</span></label>
