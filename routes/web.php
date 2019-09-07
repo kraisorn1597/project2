@@ -28,12 +28,41 @@ Route::get('/index2', function () {
 Route::get('/index3', function () {
     return view('index3');
 });
-Route::get('/index4', function () {
-    return view('frontend.index.index');
-});
 
-Route::get('/contact-us', function () {
-    return view('frontend.partials.contact-us');
+Route::get('/index4/articles', 'Frontend\FrontEndController@articles')->name('articles');
+
+
+
+//});
+Route::group([
+    'prefix' => 'laundry',
+    'as' => 'laundry.'
+], function (){
+    Route::get('/', 'Frontend\FrontEndController@index')->name('index');
+//    Route::get('{id}/content', 'Frontend\FrontEndController@content')->name('content');
+
+    Route::group([
+        'prefix' => 'articles',
+        'as' => 'article.'
+    ], function (){
+        Route::get('{name?}', 'Frontend\ArticlesController@index')->name('index');
+        Route::get('{id}/content', 'Frontend\ArticlesController@content')->name('content');
+    });
+
+    Route::group([
+        'prefix' => 'contact-us',
+        'as' => 'contact-us.'
+    ], function (){
+        Route::get('/', 'Frontend\ContactUsController@index')->name('index');
+    });
+
+//    Route::group([
+//        'prefix' => 'promotion',
+//        'as' => 'promotion.'
+//    ], function (){
+//        Route::get('/index', 'BackendUser\BackendUserController@index')->name('index');
+//        Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
+//    });
 });
 
 Route::group([
@@ -44,6 +73,7 @@ Route::group([
     Route::get('/edit', 'BackendUser\BackendUserController@edit')->name('edit');
     Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
 });
+
 
 Auth::routes();
 

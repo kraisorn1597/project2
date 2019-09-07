@@ -13,7 +13,7 @@ class PromotionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,24 @@ class PromotionRequest extends FormRequest
      */
     public function rules()
     {
+        $rules = [
+            'title' => 'required|string|max:100',
+            'discount' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ];
+        return $rules;
+    }
+
+    public function messages()
+    {
         return [
-            //
+            'title.required' => 'กรุณาเเขียนชื่อโปรโมชั่น',
+            'discount.required' => 'กรุณาใส่ส่วนลด',
+            'description.required'  => 'กรุณาเขียนรายละเอียด',
+            'start_date.required'  => 'กรุณาใส่วันเริ่ม',
+            'end_date.required'  => 'กรุณาใส่วันสิ้นสุด',
         ];
     }
 }

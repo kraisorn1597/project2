@@ -19,7 +19,7 @@
     {{--</form>--}}
 
     <!-- Topbar Navbar -->
-    <a class="letter-white" href="{{ url('index4') }}">หน้าแรก</a>
+    <a class="letter-white" href="{{ route('laundry.index') }}">หน้าแรก</a>
     <ul class="navbar-nav ml-auto">
 
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -156,7 +156,7 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#"></a>
                 <a class="dropdown-item" href="{{ route('users.profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile

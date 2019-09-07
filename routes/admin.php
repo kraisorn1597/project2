@@ -59,8 +59,14 @@ Route::group([
         'prefix' => 'promotion',
         'as' => 'promotion.'
     ], function (){
-        Route::get('/index', 'Backend\PromotionController@getPromotion')->name('index');
-        Route::post('/post', 'Backend\PromotionController@post')->name('post');
+//        Route::get('/index', 'Backend\PromotionController@getPromotion')->name('index');
+        Route::get('/index', 'Backend\PromotionController@index')->name('index');
+//        Route::post('/post', 'Backend\PromotionController@post')->name('post');
+        Route::get('/create', 'Backend\PromotionController@create')->name('create');
+        Route::post('/create', 'Backend\PromotionController@store')->name('store');
+        Route::get('{id}/promotion/edit', 'Backend\PromotionController@edit')->name('edit');
+        Route::put('{id}promotion/update', 'Backend\PromotionController@update')->name('update');
+        Route::delete('{id}/promotion/delete', 'Backend\PromotionController@destroy')->name('delete');
     });
     Route::group([
         'prefix' => 'articles',
@@ -71,17 +77,18 @@ Route::group([
         Route::post('/create', 'Backend\ArticlesController@store')->name('store');
         Route::get('{id}/articles/edit', 'Backend\ArticlesController@edit')->name('edit');
         Route::post('{id}/articles/update', 'Backend\ArticlesController@update')->name('update');
+        Route::delete('{id}/articles/delete', 'Backend\ArticlesController@destroy')->name('delete');
     });
     Route::group([
-        'prefix' => 'articlescategory',
-        'as' => 'articlescategory.'
+        'prefix' => 'article-category',
+        'as' => 'article-category.'
     ], function (){
         Route::get('/index', 'Backend\ArticlesCategoryController@index')->name('index');
         Route::get('/create', 'Backend\ArticlesCategoryController@create')->name('create');
         Route::post('/create', 'Backend\ArticlesCategoryController@store')->name('store');
-        Route::get('{id}/articlescategory/edit', 'Backend\ArticlesCategoryController@edit')->name('edit');
-        Route::post('{id}/articlescategory/update', 'Backend\ArticlesCategoryController@update')->name('update');
-        Route::delete('{id}/articlescategory/delete', 'Backend\ArticlesCategoryController@destroy')->name('delete');
+        Route::get('{id}/article-category/edit', 'Backend\ArticlesCategoryController@edit')->name('edit');
+        Route::post('{id}/article-category/update', 'Backend\ArticlesCategoryController@update')->name('update');
+        Route::delete('{id}/article-category/delete', 'Backend\ArticlesCategoryController@destroy')->name('delete');
     });
 });
 

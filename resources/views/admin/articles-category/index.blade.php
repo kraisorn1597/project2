@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <a class="btn btn-outline-primary" href="{{ route('admin.articlescategory.create') }}"><i class="fas fa-pencil-alt">  เพิ่มประเภทข่าวสาร</i></a>
+                        <a class="btn btn-outline-primary" href="{{ route('admin.article-category.create') }}"><i class="fas fa-pencil-alt">  เพิ่มประเภทข่าวสาร</i></a>
                     </div>
                     <div class="col">
 
@@ -60,17 +60,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($articlescategory as $articlescategories)
+                        @foreach($article_categories as $article_category)
                             <tr>
-                                <td scope="row">{{ $articlescategories->id }}</td>
-                                <td>{{ $articlescategories->name }}</td>
+                                <td scope="row">{{  $article_category->id }}</td>
+                                <td>{{  $article_category->name }}</td>
                                 <td class="row">
-                                    <form method="post" action="{{ route('admin.articlescategory.delete', $articlescategories->id) }}">
+                                    <form method="post" action="{{ route('admin.article-category.delete',  $article_category->id) }}">
                                         @csrf
-                                        <a class="btn btn-outline-info" href="{{ route('admin.articlescategory.edit', $articlescategories->id) }}">
+                                        <a class="btn btn-outline-info" href="{{ route('admin.article-category.edit',  $article_category->id) }}">
                                             <i class="fas fa-user-edit">edit</i>
                                         </a>
-                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" {{count($article_category->articles) == 0?'':'disabled'}}>
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <!-- Modal -->
@@ -103,9 +103,9 @@
                     </table>
                 </div>
             </div>
-{{--            <div class="flex-center" style="margin-top: 0.3%">--}}
-{{--                {{ $admins->links() }}--}}
-{{--            </div>--}}
+            <div class="flex-center" style="margin-top: 0.3%">
+                {{ $article_categories->links() }}
+            </div>
         </div>
     </div>
 @endsection

@@ -4,6 +4,6 @@
 
 @section('content')
     @include('frontend.partials.intro')
-    @include('frontend.partials.about-us')
-    @include('frontend.partials.contact')
+{{--    @include('frontend.partials.about-us')--}}
+{{--    @include('frontend.partials.contact')--}}
 @endsection

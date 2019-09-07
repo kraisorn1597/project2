@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit User') }}</div>
+                    <div class="card-header">{{ __('แก้ไขข้อมูลส่วนตัว) }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.update',[array_get($data,'id')]) }}" style="padding: 40px" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="username" class="col-form-label text-md-right">{{ __('Username :') }}</label>
+                                    <label for="username" class="col-form-label text-md-right">{{ __('ชื่อผู้ใช้ :') }}</label>
 
                                     <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                                            name="username" value="{{ $data->username }}" required autofocus>
@@ -52,7 +52,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="password" class="col-form-label text-md-right">{{ __('Password :') }}</label>
+                                    <label for="password" class="col-form-label text-md-right">{{ __('รหัสผ่าน :') }}</label>
 
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            name="password" autofocus>
@@ -64,14 +64,14 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="password-confirm" class="col-form-label text-md-right">{{ __('Confirm Password :') }}</label>
+                                    <label for="password-confirm" class="col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน :') }}</label>
 
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="email" class="col-form-label text-md-right">E-Mail Address :</label>
+                                    <label for="email" class="col-form-label text-md-right">อีเมล :</label>
 
                                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            name="email" value="{{ $data->email }}" required autofocus>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="first_name" class="col-form-label text-md-right">{{ __('First Name :') }}</label>
+                                    <label for="first_name" class="col-form-label text-md-right">{{ __('ชื่อ :') }}</label>
 
                                     <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}"
                                            name="first_name" value="{{ $data->first_name }}" required autofocus>
@@ -97,7 +97,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="last_name" class="col-form-label text-md-right">{{ __('Last Name :') }}</label>
+                                    <label for="last_name" class="col-form-label text-md-right">{{ __('นามสกุล :') }}</label>
 
                                     <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
                                            name="last_name" value="{{ $data->last_name }}" required autofocus>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="gender" class="text-md-right">  Gender :</label>
+                                <label for="gender" class="text-md-right">  เพศ :</label>
 
                                 <select name="gender" class="form-control col-md-1" >
                                     <option value="ช" {{ ('ช' == $data->gender)? 'selected':'' }}>ช</option>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="id_card" class="col-form-label text-md-right">ID_Card :</label>
+                                    <label for="id_card" class="col-form-label text-md-right">เลขบัตรประชาชน :</label>
 
                                     <input id="id_card" type="text" class="form-control{{ $errors->has('id_card') ? ' is-invalid' : '' }}"
                                            name="id_card" value="{{ $data->id_card }}" required autofocus>
@@ -131,7 +131,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tel" class="col-form-label text-md-right">Tel :</label>
+                                    <label for="tel" class="col-form-label text-md-right">เบอร์โทรศัพท์ :</label>
 
                                     <input id="tel" type="text" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}"
                                            name="tel" value="{{ $data->tel }}" required autofocus>
@@ -145,7 +145,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="birthday" class="col-form-label text-md-right">BirthDay :</label>
+                                    <label for="birthday" class="col-form-label text-md-right">วันเกิด :</label>
 
                                     <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}"
                                            name="birthday" value="{{ $data->birthday }}" required autofocus>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="address" class="col-form-label text-md-right">Address :</label>
+                                    <label for="address" class="col-form-label text-md-right">ที่อยู่ :</label>
 
                                     <input  id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
                                             name="address" value="{{ $data->address  }}"autofocus>
@@ -174,9 +174,9 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Save
+                                        บันทึก
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">Back</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">ยกเลิก</a>
                                 </div>
                             </div>
                         </form>

@@ -83,6 +83,12 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
             'address' => $data['address'],
             'image' => $data['image']->store('uploads','public'),
+            'status_id' => '1',
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('register.register');
     }
 }

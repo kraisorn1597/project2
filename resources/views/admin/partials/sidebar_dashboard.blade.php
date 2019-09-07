@@ -137,7 +137,7 @@
     @endif
     @if(auth()->user()->role_id == 1 )
         <li class="nav-item">
-            <a class="nav-link" href=" {{ route('admin.articlescategory.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
+            <a class="nav-link" href=" {{ route('admin.article-category.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
                aria-controls="collapse7">
                 <i class="fas fa-dumpster"></i>
                 <span>ประเภทข่าวสาร</span>

@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('เพิ่มประเภทข่าวสาร') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.articlescategory.store') }}" style="padding: 40px" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.article-category.store') }}" style="padding: 40px" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -28,7 +28,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         เพิ่ม
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.articlescategory.index') }}">ยกเลิก</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.article-category.index') }}">ยกเลิก</a>
                                 </div>
                             </div>
                         </form>

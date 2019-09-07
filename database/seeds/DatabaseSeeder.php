@@ -19,16 +19,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Writer',
+            'name' => 'พนักงาน',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Employee',
+            'name' => 'พนักงานรับ-ส่ง',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
+        DB::table('status')->insert([
+            'name' => 'Normal',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('status')->insert([
+            'name' => 'VIP',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }

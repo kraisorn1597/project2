@@ -53,41 +53,55 @@
             @endif
             <img src="{{ asset('newbiz/img/laundry1.png') }}" alt="" class="img-fluid">
         </div>
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">ทั้งหมด</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">โปรโมชั่น</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ข่าวสาร</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="card mb-5" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+{{--                            @foreach($articles as $article)--}}
+{{--                            <div class="carousel-item active"  data-interval="10000">--}}
+{{--                                <img src="{{ asset('storage/'.$article->image) }}" class="d-block w-100" alt="..." height="250px">--}}
+{{--                            </div>--}}
+{{--                            @endforeach--}}
+                            <div class="carousel-item active" data-interval="10000">
+                                <a href="{{route('laundry.article.content',[array_get($articles,'0.id')])}}">
+                                <img src="{{ asset('storage/'.array_get($articles,'0.image')) }}" class="d-block w-100" alt="..." height="250px">
+                                </a>
+                            </div>
+                            <div class="carousel-item" data-interval="2000">
+                                <a href="{{route('laundry.article.content',[array_get($articles,'1.id')])}}">
+                                <img src="{{ asset('storage/'.array_get($articles,'1.image')) }}" class="d-block w-100" alt="..." height="250px">
+                                </a>
+                            </div>
+                            <div class="carousel-item" data-interval="2000">
+                                <a href="{{route('laundry.article.content',[array_get($articles,'2.id')])}}">
+                                <img src="{{ asset('storage/'.array_get($articles,'2.image')) }}" class="d-block w-100" alt="..." height="250px">
+                                </a>
+                            </div>
+                            <div class="carousel-item" data-interval="2000">
+                                <a href="{{route('laundry.article.content',[array_get($articles,'3.id')])}}">
+                                <img src="{{ asset('storage/'.array_get($articles,'3.image')) }}" class="d-block w-100" alt="..." height="250px">
+                                </a>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        @foreach($articles as $article)
+                            <a href="{{route('laundry.article.content',[$article->id])}}" class="topic-black">[{{ $article->articles_category->name."] ".$article->short_description}}</a><br>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
-{{--        <div class="card">--}}
-{{--            <div class="card-header">--}}
-{{--                <h6 class="topic4">โปรโมชั่น</h6>--}}
-{{--            </div>--}}
-{{--            <div class="card-body">--}}
-{{--                <blockquote class="blockquote mb-0">--}}
-{{--                    <div class="col-md-12 col-lg-12 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">--}}
-{{--                        <div class="box">--}}
-{{--                            <div class="icon"><i style="color:#41cf2e;"></i></div>--}}
-{{--                            <h4 class="title topic4"><a href="">โปรโมชั่นรายเดือน</a></h4>--}}
-{{--                            <p class="description topic4">ซักเกิน 90 กิโลขึ้นไปมีส่วนลด 5 %</p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </blockquote>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
 </section><!-- #intro -->

@@ -271,8 +271,13 @@ h6 {
   font-weight: 500;
 }
 
+.main-nav .active {
+  color: #007bff;
+  border-bottom: 1px solid #007bff ;
+  text-decoration: none;
+}
+
 .main-nav a:hover,
-.main-nav .active > a,
 .main-nav li:hover > a {
   color: #007bff;
   text-decoration: none;

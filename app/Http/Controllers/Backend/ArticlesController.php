@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Articles;
 use App\ArticlesCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArticlesEditRequest;
 use App\Http\Requests\ArticlesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
@@ -18,16 +20,17 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        return view('admin.articles.index');
+        $articles = Articles::paginate(2);
+        return view('admin.articles.index',compact('articles'));
     }
 
     public function create()
     {
-        $articlescategory = ArticlesCategory::all();
-        return view('admin.articles.create',compact('articlescategory'));
+        $article_categories = ArticlesCategory::all();
+        return view('admin.articles.create',compact('article_categories'));
     }
 
-    public function store(Request $request)
+    public function store(ArticlesRequest $request)
     {
         $articles = new Articles;
         $articles->admin_id = Auth::user()->id;
@@ -40,29 +43,42 @@ class ArticlesController extends Controller
         return redirect()->route('admin.articles.index')->with('success','เพิ่มข่าวสาร');
     }
 
-    public function show(Articles $articles)
+    public function edit($id)
     {
-        //
+        $data = Articles::find($id);
+        $article_categories  = ArticlesCategory::all();
+
+//        foreach ($articles_categories as $articles_category)
+//        {
+//            echo $data->articles_category_id." = ".$articles_category->id."<br>";
+//        }
+
+        return view('admin.articles.edit',compact('data','article_categories'));
     }
 
-    public function edit(Articles $articles)
+    public function update(ArticlesEditRequest $request, $id)
     {
-        //
+//        dd($request);
+        $articles = Articles::find($id);
+        $articles->admin_id = Auth::user()->id;
+        $articles->articles_category_id = $request['articles_category_id'];
+        $articles->title = $request['title'];
+        $articles->short_description = $request['short_description'];
+        $articles->description = $request['description'];
+
+        if (isset($request['image'])){
+            Storage::delete('public/'.$articles->image);
+            $articles->image = ($request['image'])->store('uploads','public');
+        }
+        $articles->update();
+        return redirect()->route('admin.articles.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
     }
 
-    public function update(Request $request, Articles $articles)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Articles  $articles
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Articles $articles)
-    {
-        //
+        $articles = Articles::find($id);
+        $articles->delete();
+        Storage::delete('public/'.$articles->image);
+        return redirect()->route('admin.articles.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
     }
 }

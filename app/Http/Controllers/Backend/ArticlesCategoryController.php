@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\ArticlesCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleCategoryRequest;
+use App\Http\Requests\ArticlesCategoryEditRequest;
 use Illuminate\Http\Request;
 
 class ArticlesCategoryController extends Controller
@@ -15,8 +16,8 @@ class ArticlesCategoryController extends Controller
     }
     public function index()
     {
-        $articlescategory = ArticlesCategory::paginate(2);
-        return view('admin.articles-category.index',compact('articlescategory'));
+        $article_categories = ArticlesCategory::paginate(2);
+        return view('admin.articles-category.index',compact('article_categories'));
     }
 
     public function create()
@@ -29,7 +30,7 @@ class ArticlesCategoryController extends Controller
         ArticlesCategory::create([
             'name' => $request['name'],
         ]);
-        return redirect('admin/articlescategory/index')->with('success','เพิ่มประเภทข่าวสาร');
+        return redirect()->route('admin.article-category.index')->with('success','เพิ่มประเภทข่าวสาร');
     }
 
     public function edit($id)
@@ -38,20 +39,20 @@ class ArticlesCategoryController extends Controller
         return view('admin.articles-category.edit',compact('data'));
     }
 
-    public function update(ArticleCategoryRequest $request, $id)
+    public function update(ArticlesCategoryEditRequest $request, $id)
     {
         $category = ArticlesCategory::find($id);
         $category->name = $request['name'];
         $category->update();
-        return redirect('admin/articlescategory/index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+        return redirect()->route('admin.article-category.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
     }
 
     public function destroy($id)
     {
-        $articlescategory = ArticlesCategory::find($id);
+        $article_category = ArticlesCategory::find($id);
 
-       $articlescategory->delete();
+       $article_category->delete();
 
-        return redirect()->route('admin.articlescategory.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
+        return redirect()->route('admin.article-category.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
     }
 }

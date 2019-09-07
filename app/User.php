@@ -30,6 +30,7 @@ class User extends Authenticatable
         'birthday',
         'address',
         'image',
+        'status_id',
     ];
 
     /**
@@ -40,6 +41,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 
     /**
      * The attributes that should be cast to native types.

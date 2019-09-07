@@ -61,6 +61,7 @@ class UserController extends Controller
             'birthday' => $request['birthday'],
             'address' => $request['address'],
             'image' => $request['image']->store('uploads','public'),
+
         ]);
         return redirect('admin/users/index')->with('success','เพิ่มสมาชิกเรียบร้อย');
     }

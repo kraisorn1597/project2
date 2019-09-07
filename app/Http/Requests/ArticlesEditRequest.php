@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticlesRequest extends FormRequest
+class ArticlesEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,8 +28,12 @@ class ArticlesRequest extends FormRequest
             'title' => 'required|string|max:50',
             'description' => 'required|string|max:255',
             'short_description' => 'required|string|max:255',
-            'image' => ['required', 'file', 'image', 'max:5000'],
         ];
+
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
         return $rules;
     }
 
