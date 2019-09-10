@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <a class="btn btn-outline-primary" href="{{ route('admin.users.create') }}"><i class="fas fa-pencil-alt">  เพิ่มสมาชิก</i></a>
+                        <a class="btn btn-outline-primary" href="{{ route('admin.users.create') }}"><i class="fas fa-pencil-alt">  สร้างบัญชีผู้ใช้</i></a>
                     </div>
                     <div class="col">
 

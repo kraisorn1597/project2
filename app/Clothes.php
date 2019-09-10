@@ -11,7 +11,13 @@ class Clothes extends Model
 
     protected $table = 'clothes';
     protected $fillable = [
+        'service_type_id',
         'name',
         'price',
     ];
+
+    public function service_type()
+    {
+        return $this->belongsTo(ServiceType::class);
+    }
 }

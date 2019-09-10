@@ -41,16 +41,21 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'username.required' => 'กรุณากรอก Username',
-            'password.required' => 'กรุณากรอก password',
-            'email.required' => 'กรุณากรอก Email',
-            'first_name.required'  => 'กรุณากรอก First Name',
-            'last_name.required'  => 'กรุณากรอก Last Name',
+            'username.required' => 'กรุณากรอกชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้ถูกใช้งานแล้ว',
+            'password.required' => 'กรุณาใส่รหัสผ่าน',
+            'password.confirmed' => 'รหัสผ่านไม่ตรงกัน',
+            'password.min' => 'รหัสผ่านอย่างน้อย 6 ตัว',
+            'email.required' => 'กรุณาใส่อีเมล',
+            'email.unique' => 'อีเมลนี้มีผู้อื่นใช้งานแล้ว',
+            'first_name.required'  => 'กรุณากรอกชื่อ',
+            'last_name.required'  => 'กรุณากรอกนามสกุล',
             'gender.required'  => 'กรุณาเลือกเพศ',
-            'id_card.required'  => 'กรุณากรอก ID Card',
-            'tel.required'  => 'กรุณากรอก Phone Number',
-            'birthday.required'  => 'กรุณากรอกวันเกิด',
+            'id_card.required'  => 'กรุณากรอกเลขบัตรประชาชน',
+            'tel.required'  => 'กรุณากรอกเบอร์โทรศัพท์',
+            'birthday.required'  => 'กรุณาใส่วันเกิด',
             'address.required'  => 'กรุณากรอกที่อยู่',
+            'image.required'  => 'กรุณาใส่รูปภาพ',
         ];
     }
 }

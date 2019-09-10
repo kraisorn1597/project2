@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Clothes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClothesRequest;
+use App\ServiceType;
 use Illuminate\Http\Request;
 
 class ClothesController extends Controller
@@ -43,12 +44,15 @@ class ClothesController extends Controller
 
     public function create()
     {
-        return view('admin.clothes.create');
+        $service_types = ServiceType::all();
+        return view('admin.clothes.create',compact('service_types'));
     }
 
     public function store(ClothesRequest $request)
     {
+//        dd($request->all());
         Clothes::create([
+            'service_type_id' => $request['service_type_id'],
             'name' => $request['name'],
             'price' => $request['price'],
         ]);
@@ -58,13 +62,15 @@ class ClothesController extends Controller
     public function edit($id)
     {
         $data = Clothes::find($id);
-        return view('admin.clothes.edit', compact('data'));
+        $service_types = ServiceType::all();
+        return view('admin.clothes.edit', compact('data','service_types'));
     }
 
     public function update(ClothesRequest $request, $id)
     {
         $clothes = Clothes::find($id);
         $editAdmin = [
+            'service_type_id' => $request['service_type_id'],
             'name' => $request['name'],
             'price' => $request['price'],
         ];

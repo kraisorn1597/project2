@@ -33,16 +33,16 @@
     Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
     Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ||
     Route::currentRouteName() == 'admin.users.search' || Route::currentRouteName() == 'admin.employee.search' ? 'active' : null }} ">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
-           aria-controls="collapseone">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-one" aria-expanded="true"
+           aria-controls="collapse-one">
             <i class="fas fa-users"></i>
             <span>ข้อมูลสมาชิก</span>
         </a>
-        <div id="collapseone" class="collapse {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.users.index'||
+        <div id="collapse-one" class="collapse {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.users.index'||
           Route::currentRouteName() == 'admin.employee.create' || Route::currentRouteName() == 'admin.employee.edit' ||
           Route::currentRouteName() == 'admin.users.create' || Route::currentRouteName() == 'admin.users.edit' ||
           Route::currentRouteName() == 'admin.users.search' || Route::currentRouteName() == 'admin.employee.search' ? 'show' : null  }}"
-             aria-labelledby="headingone" data-parent="#accordionSidebar">
+             aria-labelledby="heading-one" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded ">
                 {{--<h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item fas fa-user-tie {{ Route::currentRouteName() == 'admin.employee.index' || Route::currentRouteName() == 'admin.employee.create' ||
@@ -54,10 +54,21 @@
     </li>
     @endif
 
+    @if(auth()->user()->role_id == 1)
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.service-type.index' || Route::currentRouteName() == 'admin.service-type.create' ||
+      Route::currentRouteName() == 'admin.service-type.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.service-type.index') }}" data-toggle="collapse show" data-target="#collapse-two" aria-expanded="true"
+               aria-controls="collapse-two">
+                <i class="fas fa-dumpster"></i>
+                <span>ประเภทบริการ</span>
+            </a>
+        </li>
+    @endif
+
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
     <li class="nav-item {{ Route::currentRouteName() == 'admin.clothes.index' || Route::currentRouteName() == 'admin.clothes.create' ||
       Route::currentRouteName() == 'admin.clothes.edit' || Route::currentRouteName() == 'admin.clothes.search'? 'active' : null }}">
-        <a class="nav-link" href=" {{ route('admin.clothes.index') }}" data-toggle="collapse show" data-target="#collapsetwo" aria-expanded="true"
+        <a class="nav-link" href=" {{ route('admin.clothes.index') }}" data-toggle="collapse show" data-target="#collapseTwo" aria-expanded="true"
            aria-controls="collapseTwo">
             <i class="fas fa-dumpster"></i>
             <span>กลุ่มเสื้อผ้า</span>
@@ -75,12 +86,12 @@
 
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
-           aria-controls="collapsethree">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"
+           aria-controls="collapse-three">
             <i class="fas fa-calendar-alt"></i>
             <span>บริการลูกค้า</span>
         </a>
-        <div id="collapsethree" class="collapse" aria-labelledby="headingthree" data-parent="#accordionSidebar">
+        <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#">รายการใช้บริการของลูกค้า</a>
                 {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
@@ -92,12 +103,12 @@
 
     @if(auth()->user()->role_id == 1 )
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true"
-           aria-controls="collapsefour">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-four" aria-expanded="true"
+           aria-controls="collapse-four">
             <i class="fas fa-file-alt"></i>
             <span>รายงานการใช้บริการ</span>
         </a>
-        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionSidebar">
+        <div id="collapse-four" class="collapse" aria-labelledby="heading-four" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#">รายงานการใช้บริการรายวัน</a>
                 <a class="collapse-item" href="#">รายงานการใช้บริการรายเดือน</a>
@@ -108,8 +119,8 @@
 
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true"
-           aria-controls="collapsefive">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-five" aria-expanded="true"
+           aria-controls="collapse-five">
             <i class="fas fa-bell"></i>
             <span>การแจ้งเตือน</span>
         </a>
@@ -123,22 +134,14 @@
 
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-        <p class="topic-white-size25">หน้าบ้าน</p>
+        <p class="topic-white-size15">หน้าบ้าน</p>
     </div>
 
     @if(auth()->user()->role_id == 1 )
-        <li class="nav-item">
-            <a class="nav-link" href=" {{ route('admin.promotion.index') }}" data-toggle="collapse show" data-target="#collapsesix" aria-expanded="true"
-               aria-controls="collapsesix">
-                <i class="fas fa-dumpster"></i>
-                <span>โปรโมชั่น</span>
-            </a>
-        </li>
-    @endif
-    @if(auth()->user()->role_id == 1 )
-        <li class="nav-item">
-            <a class="nav-link" href=" {{ route('admin.article-category.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
-               aria-controls="collapse7">
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.article-category.index' || Route::currentRouteName() == 'admin.article-category.create' ||
+      Route::currentRouteName() == 'admin.article-category.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.article-category.index') }}" data-toggle="collapse show" data-target="#collapse4" aria-expanded="true"
+               aria-controls="collapse4">
                 <i class="fas fa-dumpster"></i>
                 <span>ประเภทข่าวสาร</span>
             </a>
@@ -146,12 +149,35 @@
     @endif
 
     @if(auth()->user()->role_id == 1 )
-        <li class="nav-item">
-            <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapseseven" aria-expanded="true"
-               aria-controls="collapseseven">
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.articles.index' || Route::currentRouteName() == 'admin.articles.create' ||
+      Route::currentRouteName() == 'admin.articles.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
+               aria-controls="collapse7">
                 <i class="fas fa-dumpster"></i>
                 <span>ข่าวสาร</span>
             </a>
         </li>
     @endif
+
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.promotion.index' || Route::currentRouteName() == 'admin.promotion.create' ||
+      Route::currentRouteName() == 'admin.promotion.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.promotion.index') }}" data-toggle="collapse show" data-target="#collapse5" aria-expanded="true"
+               aria-controls="collapse5">
+                <i class="fas fa-dumpster"></i>
+                <span>โปรโมชั่น</span>
+            </a>
+        </li>
+    @endif
+
+{{--    @if(auth()->user()->role_id == 1 )--}}
+{{--        <li class="nav-item" {{ Route::currentRouteName() == 'admin.articles.index' || Route::currentRouteName() == 'admin.articles.create' ||--}}
+{{--      Route::currentRouteName() == 'admin.articles.edit' ? 'active' : null }}>--}}
+{{--            <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapse-seven" aria-expanded="true"--}}
+{{--               aria-controls="collapse-seven">--}}
+{{--                <i class="fas fa-dumpster"></i>--}}
+{{--                <span>ข่าวสาร</span>--}}
+{{--            </a>--}}
+{{--        </li>--}}
+{{--    @endif--}}
 </ul>

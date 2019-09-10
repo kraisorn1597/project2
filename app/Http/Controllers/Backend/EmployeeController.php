@@ -15,7 +15,6 @@ use Illuminate\Validation\Rule;
 
 class EmployeeController extends Controller
 {
-    //
     public function __construct()
     {
         $this->middleware('admin:admin');
@@ -24,12 +23,15 @@ class EmployeeController extends Controller
     public function index()
     {
         $search = "";
-        $admins = Admin::paginate(2);
+        $admins = Admin::query()
+            ->where('id','!=','1')
+            ->paginate(6);
         return view('admin.employee.index', compact('admins','search'));
     }
     public function create()
     {
-        $roles = Role::where('id','!=','1')
+        $roles = Role::query()
+        ->where('id','!=','1')
          ->get();
         return view('admin.employee.create', compact('roles'));
     }
@@ -40,7 +42,7 @@ class EmployeeController extends Controller
         if ($search == ""){
             $admins = Admin::query()
 //                ->where('id', '!=', 1)
-                ->paginate(2);
+                ->paginate(6);
             return view('admin.employee.index',['admins' => $admins,'search' => $search]);
         }
         else{
@@ -56,8 +58,8 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
         $data = $request->all();
+//        dd($data);
         $this->validateCreate($data)->validate();
         Admin::create([
             'username' => $request['username'],
@@ -71,7 +73,6 @@ class EmployeeController extends Controller
             'birthday' => $request['birthday'],
             'address' => $request['address'],
             'role_id' => $request['role_id'],
-            'salary' => $request['salary'],
             'image' => $request['image']->store('uploads','public'),
         ]);
         return redirect('admin/employee/index')->with('success','เพิ่มพนักงานเรียบร้อย');
@@ -89,15 +90,32 @@ class EmployeeController extends Controller
             'tel' => ['required','string','max:20'],
             'birthday' => ['required'],
             'address' => ['required','string','max:255'],
-            'salary' => ['nullable','string','max:100'],
+            'role_id' => ['required'],
             'image' => ['required', 'file', 'image', 'max:5000'],
+        ],[
+            'username.required' => 'กรุณากรอกชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้มีอยู่ในระบบแล้ว',
+            'password.required' => 'กรุณากรอกรหัสผ่าน',
+            'email.required' => 'กรุณากรอกอีเมล',
+            'email.unique' => 'อีเมลนี้มีอยู่ในระบบแล้ว',
+            'first_name.required'  => 'กรุณากรอกชื่อ',
+            'last_name.required'  => 'กรุณากรอกนามสกุล',
+            'gender.required'  => 'กรุณาเลือกเพศ',
+            'id_card.required'  => 'กรุณากรอกเลขบัตรประชาชน',
+            'tel.required'  => 'กรุณากรอกเบอร์โทรศัพท์',
+            'birthday.required'  => 'กรุณากรอกวันเกิด',
+            'address.required'  => 'กรุณากรอกที่อยู่',
+            'role_id.required'  => 'กรุณากรอกตำแหน่ง',
+            'image.required'  => 'กรุณาใส่รูปภาพ',
         ]);
     }
 
     public function edit($id)
     {
         $data = Admin::find($id);
-        $roles = Role::all();
+        $roles = Role::query()
+        ->where('id','!=','1')
+        ->get();
         return view('admin.employee.edit', compact('data','roles'));
     }
     public function update(Request $request, $id)
@@ -113,7 +131,6 @@ class EmployeeController extends Controller
             'tel' => $request['tel'],
             'birthday' => $request['birthday'],
             'address' => $request['address'],
-            'salary' => $request['salary'],
             'role_id' => $request['role_id'],
         ];
         $data = [
@@ -127,14 +144,30 @@ class EmployeeController extends Controller
             'tel' => 'required|string|max:20',
             'birthday' => 'required',
             'address' => 'required|string|max:255',
-            'salary' => 'nullable|string|max:100',
+            'role_id' => 'required',
             ];
+        $rules = [
+            'username.required' => 'กรุณากรอกชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้มีอยู่ในระบบแล้ว',
+            'password.required' => 'กรุณากรอกรหัสผ่าน',
+            'email.required' => 'กรุณากรอกอีเมล',
+            'email.unique' => 'อีเมลนี้มีอยู่ในระบบแล้ว',
+            'first_name.required'  => 'กรุณากรอกชื่อ',
+            'last_name.required'  => 'กรุณากรอกนามสกุล',
+            'gender.required'  => 'กรุณาเลือกเพศ',
+            'id_card.required'  => 'กรุณากรอกเลขบัตรประชาชน',
+            'tel.required'  => 'กรุณากรอกเบอร์โทรศัพท์',
+            'birthday.required'  => 'กรุณากรอกวันเกิด',
+            'address.required'  => 'กรุณากรอกที่อยู่',
+            'role_id.required'  => 'กรุณากรอกตำแหน่ง',
+            'image.required'  => 'กรุณาใส่รูปภาพ',
+        ];
 
         if (!empty($request['image'])) {
             $data += ['image' => ['required', 'file', 'image', 'max:5000'],];
         };
 
-        $this->validate($request, $data);
+        $this->validate($request, $data, $rules);
 
 
         $admin = Admin::find($id);

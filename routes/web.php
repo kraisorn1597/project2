@@ -43,7 +43,7 @@ Route::group([
 
     Route::group([
         'prefix' => 'articles',
-        'as' => 'article.'
+        'as' => 'articles.'
     ], function (){
         Route::get('{name?}', 'Frontend\ArticlesController@index')->name('index');
         Route::get('{id}/content', 'Frontend\ArticlesController@content')->name('content');

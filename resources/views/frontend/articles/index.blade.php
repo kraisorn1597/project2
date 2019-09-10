@@ -32,10 +32,10 @@
                                                 @endif
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                                <a class="dropdown-item" href="{{ route('laundry.article.index',['name' => null ]) }}">All</a>
+                                                <a class="dropdown-item" href="{{ route('laundry.articles.index',['name' => null ]) }}">All</a>
                                                 @foreach($categories as $category)
                                                     <a class="dropdown-item"
-                                                       href="{{ route('laundry.article.index',['name' => $category->name]) }}">
+                                                       href="{{ route('laundry.articles.index',['name' => $category->name]) }}">
                                                         {{ $category->name }}
                                                     </a>
                                                 @endforeach
@@ -43,12 +43,13 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="article">
                                         @foreach($articles as $article)
                                             <div class="card mb-3" >
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <a href="{{route('laundry.article.content',[$article->id])}}">
+                                                        <a href="{{route('laundry.articles.content',[$article->id])}}">
                                                             <img src="{{ asset('storage/'.$article->image) }}" class="card-img" alt="...">
                                                         </a>
 
@@ -57,7 +58,7 @@
                                                         <div class="card-body">
                                                             <h5 class="card-title">{{ $article->title }}</h5>
                                                             <p class="card-text">{!! $article->description !!}</p>
-                                                            <a href="{{route('laundry.article.content',[$article->id])}}" class="btn-sm btn btn-readmore">Read More</a>
+                                                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="btn-sm btn btn-readmore">Read More</a>
                                                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                                         </div>
                                                     </div>

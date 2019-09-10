@@ -5,8 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('แก้ไขข้อมูลส่วนตัว) }}</div>
-
+                    <div class="card-header">{{ __('แก้ไขข้อมูลผู้ใช้') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.update',[array_get($data,'id')]) }}" style="padding: 40px" enctype="multipart/form-data">
                             @csrf
@@ -38,6 +37,7 @@
                                     ขนาดไฟล์ไม่เกิน 1 MB <br>
                                 </p>
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="username" class="col-form-label text-md-right">{{ __('ชื่อผู้ใช้ :') }}</label>
@@ -161,8 +161,8 @@
                                 <div class="form-group col-md-12">
                                     <label for="address" class="col-form-label text-md-right">ที่อยู่ :</label>
 
-                                    <input  id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                            name="address" value="{{ $data->address  }}"autofocus>
+                                    <textarea rows="4" id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
+                                              name="address" >{{ $data->address }}</textarea>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
@@ -176,7 +176,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         บันทึก
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">ยกเลิก</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">กลับ</a>
                                 </div>
                             </div>
                         </form>

@@ -30,7 +30,7 @@
     <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.profile') }}">
             <i class="fas fa-id-card"></i>
-            <span>Profile</span></a>
+            <span>โปรไฟล์</span></a>
     </li>
     <li class="nav-item {{ Route::currentRouteName() == 'users.edit' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.edit') }}">

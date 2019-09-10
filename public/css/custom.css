@@ -15,7 +15,7 @@
     color: white;
     font-family: 'Prompt', sans-serif;
 }
-.colorblack {
+.text-color-black {
     text-align: left;
     color: black;
     font-family: 'Prompt', sans-serif;
@@ -80,11 +80,11 @@
     font-size: 60px;
 }
 
-.topic-white-size25 {
+.topic-white-size15 {
     text-align: left;
     color: white;
     font-family: 'Prompt', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .topic-gray {

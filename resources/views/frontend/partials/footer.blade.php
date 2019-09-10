@@ -9,10 +9,10 @@
 
             <div class="col-lg-4 col-md-6 footer-info">
                 <div style="max-width: 18rem;">
-                    <h3 class="colorblack">ร้านซักรีดออนไลน์</h3>
+                    <h3 class="text-color-black">ร้านซักรีดออนไลน์</h3>
                     <div>
-                        <h5 class="card-title colorblack" style="margin-left: 20px">บริการซัก อบ รีด</h5>
-                        <p class="card-text colorblack" style="margin-left: 20px">ร้านซัก อบ รีด บริการรับ-ส่ง เสื้อผ้าลูกค้าถึงที่</p>
+                        <h5 class="card-title text-color-black" style="margin-left: 20px">บริการซัก อบ รีด</h5>
+                        <p class="card-text text-color-black" style="margin-left: 20px">ร้านซัก อบ รีด บริการรับ-ส่ง เสื้อผ้าลูกค้าถึงที่</p>
                     </div>
                 </div>
                 {{--<h3>ร้านซักรีดออนไลน์</h3>--}}
@@ -20,19 +20,19 @@
             </div>
 
             <div class="col-lg-2 col-md-6 footer-links">
-                <h4 class="colorblack">ลิงค์สำคัญ</h4>
+                <h4 class="text-color-black">ลิงค์สำคัญ</h4>
                 <ul>
-                    <li><a href="#" class="colorblack">หน้าแรก</a></li>
-                    {{--<li><a href="#">About us</a></li>--}}
-                    <li><a href="#" class="colorblack">โปรโมชั่น</a></li>
+                    <li><a href="{{ route('laundry.index') }}" class="text-color-black">หน้าแรก</a></li>
+                    <li><a href="{{ route('laundry.articles.index') }} " class="text-color-black">ข่าวสาร</a></li>
+                    <li><a href="{{ route('laundry.contact-us.index') }}" class="text-color-black">ติดต่อเรา</a></li>
                     {{--<li><a href="#">Terms of service</a></li>--}}
                     {{--<li><a href="#" class="colorblack">Privacy policy</a></li>--}}
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-contact offset-1">
-                <h4 class="colorblack">ติดต่อเรา</h4>
-                <p class="colorblack">
+                <h4 class="text-color-black">ติดต่อเรา</h4>
+                <p class="text-color-black">
                     45 sadao <br>
                     Thailand, Buriram<br>
                     plubplachai

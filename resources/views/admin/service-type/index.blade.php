@@ -1,27 +1,27 @@
 @extends('admin.layouts.main_dashboard')
-@section('title', 'Employee')
+@section('title', 'ServiceType')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <a class="btn btn-outline-primary" href="{{ route('admin.employee.create') }}"><i class="fas fa-pencil-alt">  สร้างบัญชีพนักงาน</i></a>
+                        <a class="btn btn-outline-primary" href="{{ route('admin.service-type.create') }}"><i class="fas fa-pencil-alt">  เพิ่มประเภทบริการ</i></a>
                     </div>
                     <div class="col">
 
                     </div>
-                    <div class="col-md-3" style="padding-right: -20%">
-                        <form action="{{ route('admin.employee.search') }}" method="post" role="search">
-                            @csrf
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-group" value="{{$search }}">
-                                <span class="input-group-prepend">
-                                    <button type="submit" class="btn btn-primary">Search</button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+{{--                    <div class="col-md-3" style="padding-right: -20%">--}}
+{{--                        <form action="{{ route('admin.employee.search') }}" method="post" role="search">--}}
+{{--                            @csrf--}}
+{{--                            <div class="input-group">--}}
+{{--                                <input type="text" name="search" class="form-group" value="{{$search }}">--}}
+{{--                                <span class="input-group-prepend">--}}
+{{--                                    <button type="submit" class="btn btn-primary">Search</button>--}}
+{{--                                </span>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
                 </div>
 
                 @if(session()->has('success'))
@@ -55,32 +55,23 @@
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">ชื่อ</th>
-                            <th scope="col">นามสกุล</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">เบอร์โทรศัพท์</th>
-                            <th scope="col">ที่อยู่</th>
+                            <th scope="col">ชื่อประเภทบริการ</th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($admins as $admin)
+                        @foreach($service_types as $service_type)
                             <tr>
-                                <td scope="row">{{ $admin->id }}</td>
-{{--                                <td>{{ $admin->first_name." ".$admin->last_name }}</td>--}}
-                                <td>{{ $admin->first_name }}</td>
-                                <td>{{ $admin->last_name }}</td>
-                                <td>{{ $admin->email }}</td>
-                                <td>{{ $admin->tel }}</td>
-                                <td>{{ $admin->address }}</td>
+                                <td scope="row">{{  $service_type->id }}</td>
+                                <td>{{  $service_type->name }}</td>
                                 <td class="row">
-                                    <form method="post" action="{{ route('admin.employee.delete', $admin->id) }}">
+                                    <form method="post" action="{{ route('admin.service-type.delete',  $service_type->id) }}">
                                         @csrf
-                                        <a class="btn btn-outline-info" href="{{ route('admin.employee.edit', $admin->id) }}">
+                                        <a class="btn btn-outline-info" href="{{ route('admin.service-type.edit',  $service_type->id) }}">
                                             <i class="fas fa-user-edit">edit</i>
                                         </a>
-                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                                           <i class="fas fa-trash-alt"></i>
+                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" {{count($service_type->clothes) == 0?'':'disabled'}}>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,7 +104,7 @@
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 0.3%">
-                {{ $admins->links() }}
+                {{ $service_types->links() }}
             </div>
         </div>
     </div>

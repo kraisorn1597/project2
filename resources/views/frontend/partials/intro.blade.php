@@ -64,22 +64,22 @@
 {{--                            </div>--}}
 {{--                            @endforeach--}}
                             <div class="carousel-item active" data-interval="10000">
-                                <a href="{{route('laundry.article.content',[array_get($articles,'0.id')])}}">
+                                <a href="{{route('laundry.articles.content',[array_get($articles,'0.id')])}}">
                                 <img src="{{ asset('storage/'.array_get($articles,'0.image')) }}" class="d-block w-100" alt="..." height="250px">
                                 </a>
                             </div>
                             <div class="carousel-item" data-interval="2000">
-                                <a href="{{route('laundry.article.content',[array_get($articles,'1.id')])}}">
+                                <a href="{{route('laundry.articles.content',[array_get($articles,'1.id')])}}">
                                 <img src="{{ asset('storage/'.array_get($articles,'1.image')) }}" class="d-block w-100" alt="..." height="250px">
                                 </a>
                             </div>
                             <div class="carousel-item" data-interval="2000">
-                                <a href="{{route('laundry.article.content',[array_get($articles,'2.id')])}}">
+                                <a href="{{route('laundry.articles.content',[array_get($articles,'2.id')])}}">
                                 <img src="{{ asset('storage/'.array_get($articles,'2.image')) }}" class="d-block w-100" alt="..." height="250px">
                                 </a>
                             </div>
                             <div class="carousel-item" data-interval="2000">
-                                <a href="{{route('laundry.article.content',[array_get($articles,'3.id')])}}">
+                                <a href="{{route('laundry.articles.content',[array_get($articles,'3.id')])}}">
                                 <img src="{{ asset('storage/'.array_get($articles,'3.image')) }}" class="d-block w-100" alt="..." height="250px">
                                 </a>
                             </div>
@@ -97,7 +97,7 @@
                 <div class="col">
                     <div class="card-body">
                         @foreach($articles as $article)
-                            <a href="{{route('laundry.article.content',[$article->id])}}" class="topic-black">[{{ $article->articles_category->name."] ".$article->short_description}}</a><br>
+                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="topic-black">[{{ $article->articles_category->name."] ".$article->short_description}}</a><br>
                         @endforeach
                     </div>
                 </div>

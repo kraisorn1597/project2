@@ -20,7 +20,7 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $articles = Articles::paginate(2);
+        $articles = Articles::paginate(6);
         return view('admin.articles.index',compact('articles'));
     }
 

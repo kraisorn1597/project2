@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Create Member') }}</div>
+                    <div class="card-header">{{ __('สร้างบัญชีผู้ใช้') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="username" class="col-form-label text-md-right">{{ __('Username :') }}</label>
+                                    <label for="username" class="col-form-label text-md-right">{{ __('ชื่อผู้ใช้ :') }}</label>
 
                                     <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                                            name="username" value="{{ old('username') }}"  autofocus>
@@ -47,7 +47,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="password" class="col-form-label text-md-right">{{ __('Password :') }}</label>
+                                    <label for="password" class="col-form-label text-md-right">{{ __('รหัส :') }}</label>
 
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            name="password"  autofocus>
@@ -59,14 +59,14 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="password-confirm" class="col-form-label text-md-right">{{ __('Confirm Password :') }}</label>
+                                    <label for="password-confirm" class="col-form-label text-md-right">{{ __('ยืนยันหรัสผ่าน :') }}</label>
 
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="email" class="col-form-label text-md-right">E-Mail Address :</label>
+                                    <label for="email" class="col-form-label text-md-right">อีเมล :</label>
 
                                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            name="email" value="{{ old('email') }}"  autofocus>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="first_name" class="col-form-label text-md-right">{{ __('First Name :') }}</label>
+                                    <label for="first_name" class="col-form-label text-md-right">{{ __('ชื่อ :') }}</label>
 
                                     <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}"
                                            name="first_name" value="{{ old('first_name') }}"  autofocus>
@@ -92,7 +92,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="last_name" class="col-form-label text-md-right">{{ __('Last Name :') }}</label>
+                                    <label for="last_name" class="col-form-label text-md-right">{{ __('นามสกุล :') }}</label>
 
                                     <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
                                            name="last_name" value="{{ old('last_name') }}"  autofocus>
@@ -114,7 +114,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="id_card" class="col-form-label text-md-right">ID_Card :</label>
+                                    <label for="id_card" class="col-form-label text-md-right">เลขบัตรประชาชน :</label>
 
                                     <input id="id_card" type="text" class="form-control{{ $errors->has('id_card') ? ' is-invalid' : '' }}"
                                            name="id_card" value="{{ old('id_card') }}"  autofocus>
@@ -126,7 +126,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tel" class="col-form-label text-md-right">Tel :</label>
+                                    <label for="tel" class="col-form-label text-md-right">เบอร์โทรศัพท์ :</label>
 
                                     <input id="tel" type="text" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}"
                                            name="tel" value="{{ old('tel') }}"  autofocus>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="birthday" class="col-form-label text-md-right">BirthDay :</label>
+                                    <label for="birthday" class="col-form-label text-md-right">วันเกิด :</label>
 
                                     <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}"
                                            name="birthday" value="{{ old('birthday') }}"  autofocus>
@@ -154,10 +154,10 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="address" class="col-form-label text-md-right">Address :</label>
+                                    <label for="address" class="col-form-label text-md-right">ที่อยู่ :</label>
 
                                     <textarea rows="4" id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                              name="address" value="{{ old('address') }}"  autofocus></textarea>
+                                              name="address"  autofocus>{{ old('address') }}</textarea>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
@@ -169,9 +169,9 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                       เพิ่มบัญชีผู้ใช้
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">Back</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">กลับ</a>
                                 </div>
                             </div>
                         </form>
@@ -193,6 +193,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         new Cleave('#tel', {
             phone: true,
             delimiter: '-',

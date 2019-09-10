@@ -10,6 +10,21 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.clothes.store') }}" style="padding: 40px">
                             @csrf
+                            <div class="form-group">
+                                <label>ประเภทบริการ </label>
+                                <select class="form-control col-md-3" name="service_type_id">
+                                    <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>
+                                    @foreach ($service_types as $service_type)
+                                        <option
+                                                {{ (old("service_type_id") == $service_type->id ? "selected":"") }} value="{{ $service_type->id }}">{{ $service_type->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('service_type_id'))
+                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('service_type_id') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name" class="col-form-label text-md-right">{{ __('ชื่อประเภทเสื้อผ้า :') }}</label>
@@ -23,7 +38,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="price" class="col-form-label text-md-right">{{ __('ราคา/ชิ้น :') }}</label>
+                                    <label for="price" class="col-form-label text-md-right">{{ __('ราคา(บาท)/ชิ้น :') }}</label>
                                     <input id="price" type="text" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}"
                                            name="price" value="{{ old('price') }}"  autofocus>
 

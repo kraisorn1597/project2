@@ -36,6 +36,7 @@ class UserEditRequest extends FormRequest
             'tel' => 'required|string|max:20',
             'birthday' => 'required',
             'address' => 'required|string|max:255',
+//            'status_id' => 'required',
         ];
 
 //        if (!empty($password['password'])) {
@@ -51,18 +52,32 @@ class UserEditRequest extends FormRequest
     public function messages()
     {
         return [
-            'username.required' => 'กรุณากรอก Username',
-            'username.unique' => 'ชื่อผู้ใช้นี้ มีผู้อื่นใช้งานแล้ว',
-            'password.required' => 'กรุณากรอก password',
-            'email.required' => 'กรุณากรอก Email',
-            'email.unique' => 'Email นี้มีผู้อื่นใช้งานแล้ว',
-            'first_name.required'  => 'กรุณากรอก First Name',
-            'last_name.required'  => 'กรุณากรอก Last Name',
+            'username.required' => 'กรุณากรอกชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้ถูกใช้งานแล้ว',
+            'password.confirmed' => 'รหัสผ่านไม่ตรงกัน',
+            'password.min' => 'รหัสผ่านอย่างน้อย 6 ตัว',
+            'email.required' => 'กรุณาใส่อีเมล',
+            'email.unique' => 'อีเมลนี้มีผู้อื่นใช้งานแล้ว',
+            'first_name.required'  => 'กรุณากรอกชื่อ',
+            'last_name.required'  => 'กรุณากรอกนามสกุล',
             'gender.required'  => 'กรุณาเลือกเพศ',
-            'id_card.required'  => 'กรุณากรอก ID Card',
-            'tel.required'  => 'กรุณากรอก Phone Number',
-            'birthday.required'  => 'กรุณากรอกวันเกิด',
+            'id_card.required'  => 'กรุณากรอกเลขบัตรประชาชน',
+            'tel.required'  => 'กรุณากรอกเบอร์โทรศัพท์',
+            'birthday.required'  => 'กรุณาใส่วันเกิด',
             'address.required'  => 'กรุณากรอกที่อยู่',
+            'image.required'  => 'กรุณาใส่รูปภาพ',
+//            'username.required' => 'กรุณากรอก Username',
+//            'username.unique' => 'ชื่อผู้ใช้นี้ มีผู้อื่นใช้งานแล้ว',
+//            'password.confirmed' => 'กรุณากรอก password',
+//            'email.required' => 'กรุณากรอก Email',
+//            'email.unique' => 'Email นี้มีผู้อื่นใช้งานแล้ว',
+//            'first_name.required'  => 'กรุณากรอก First Name',
+//            'last_name.required'  => 'กรุณากรอก Last Name',
+//            'gender.required'  => 'กรุณาเลือกเพศ',
+//            'id_card.required'  => 'กรุณากรอก ID Card',
+//            'tel.required'  => 'กรุณากรอก Phone Number',
+//            'birthday.required'  => 'กรุณากรอกวันเกิด',
+//            'address.required'  => 'กรุณากรอกที่อยู่',
         ];
     }
 }

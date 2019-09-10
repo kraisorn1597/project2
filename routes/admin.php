@@ -90,6 +90,18 @@ Route::group([
         Route::post('{id}/article-category/update', 'Backend\ArticlesCategoryController@update')->name('update');
         Route::delete('{id}/article-category/delete', 'Backend\ArticlesCategoryController@destroy')->name('delete');
     });
+
+    Route::group([
+        'prefix' => 'service-type',
+        'as' => 'service-type.'
+    ], function (){
+        Route::get('/index', 'Backend\ServiceTypeController@index')->name('index');
+        Route::get('/create', 'Backend\ServiceTypeController@create')->name('create');
+        Route::post('/create', 'Backend\ServiceTypeController@store')->name('store');
+        Route::get('{id}/service-type/edit', 'Backend\ServiceTypeController@edit')->name('edit');
+        Route::post('{id}/service-type/update', 'Backend\ServiceTypeController@update')->name('update');
+        Route::delete('{id}/service-type/delete', 'Backend\ServiceTypeController@destroy')->name('delete');
+    });
 });
 
 

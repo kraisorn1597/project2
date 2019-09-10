@@ -70,6 +70,22 @@ class RegisterController extends Controller
             'address' => ['required','string','max:255'],
 //            'salary' => ['nullable','string','max:100'],
             'image' => ['required', 'file', 'image', 'max:5000'],
+            'role_id' => ['required'],
+        ],[
+            'username.required' => 'กรุณากรอกชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้มีอยู่ในระบบแล้ว',
+            'password.required' => 'กรุณากรอกรหัสผ่าน',
+            'email.required' => 'กรุณากรอกอีเมล',
+            'email.unique' => 'อีเมลนี้มีอยู่ในระบบแล้ว',
+            'first_name.required'  => 'กรุณากรอกชื่อ',
+            'last_name.required'  => 'กรุณากรอกนามสกุล',
+            'gender.required'  => 'กรุณาเลือกเพศ',
+            'id_card.required'  => 'กรุณากรอกเลขบัตรประชาชน',
+            'tel.required'  => 'กรุณากรอกเบอร์โทรศัพท์',
+            'birthday.required'  => 'กรุณาใส่วันเกิด',
+            'address.required'  => 'กรุณากรอกที่อยู่',
+            'role_id.required'  => 'กรุณากรอกตำแหน่ง',
+            'image.required'  => 'กรุณาใส่รูปภาพ',
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Status;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $search = "";
-        $users = User::paginate(2);
+        $users = User::paginate(6);
         return view('admin.users.index', compact('users','search'));
     }
 
@@ -34,7 +35,7 @@ class UserController extends Controller
     {
         $search = $request->search;
         if ($search == ""){
-            $users = User::paginate(2);
+            $users = User::paginate(6);
             return view('admin.users.index',compact('users','search'));
         }
         else{
@@ -61,6 +62,7 @@ class UserController extends Controller
             'birthday' => $request['birthday'],
             'address' => $request['address'],
             'image' => $request['image']->store('uploads','public'),
+            'status_id' => '1',
 
         ]);
         return redirect('admin/users/index')->with('success','เพิ่มสมาชิกเรียบร้อย');
@@ -69,11 +71,13 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::find($id);
+//        $status = Status::all();
         return view('admin.users.edit', compact('data'));
     }
 
     public function update(UserEditRequest $request, $id)
     {
+//        dd($request);
         $user = User::find($id);
         $user->username = $request['username'];
         $user->email = $request['email'];
@@ -84,6 +88,7 @@ class UserController extends Controller
         $user->tel = $request['tel'];
         $user->birthday = $request['birthday'];
         $user->address = $request['address'];
+//        $user->status_id = $request['status_id'];
 
         if (!empty($request->password)) {
             $newPassword = Hash::make($request['password']);
@@ -95,7 +100,7 @@ class UserController extends Controller
         }
 
         $user->update();
-        return redirect('admin/users/index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+        return redirect()->route('admin.users.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
     }
 
     public function destroy($id)

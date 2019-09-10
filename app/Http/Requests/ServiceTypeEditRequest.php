@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClothesRequest extends FormRequest
+class ServiceTypeEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,15 @@ class ClothesRequest extends FormRequest
     public function rules()
     {
         return [
-            'service_type_id' => 'required|string|max:50',
-            'name' => 'required|string|max:50',
-            'price' => 'required|numeric|max:100|between:,99999.99',
-//            'email' => 'required|string|email|max:255|unique:users'
+            'name' => 'required|string|max:40|unique:service_types,name,'. $this->route('id'),
+//            'name' => 'required|string|max:40|unique:service_types,name,'. $this->route('id'),
         ];
     }
-
     public function messages()
     {
         return [
-            'name.required' => 'กรุณากรอกชื่อเสื้อผ้า',
-            'price.required' => 'กรุณาใส่ราคา(บาท)/ต่อชิ้น',
+            'name.required' => 'กรุณากรอกชประเภทบริการ',
+            'name.unique' => 'ประเภทขบริการซ้ำ',
         ];
     }
 }
