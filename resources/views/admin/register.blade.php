@@ -157,7 +157,7 @@
                                     <label for="address" class="col-form-label text-md-right">ที่อยู่ :</label>
 
                                     <textarea rows="4" id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                              name="address" value="{{ old('address') }}"  autofocus></textarea>
+                                              name="address"  autofocus>{{ old('address') }}</textarea>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">

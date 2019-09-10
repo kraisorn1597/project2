@@ -41,6 +41,16 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-
+//        DB::table('admin')->insert([
+//            'username' => 'admin',
+//            'password' => '123456',
+//            'email' => 'admin01@gmail.com',
+//            'first_name' => 'สมจิต',
+//            'last_name' => 'เกือบรำ',
+//            'gender' => 'ช',
+//            'id_card' => '1311500045863',
+//            'created_at' => now(),
+//            'updated_at' => now()
+//        ]);
     }
 }

@@ -18,7 +18,7 @@ class ServiceTypeController extends Controller
 
     public function index()
     {
-        $service_types = ServiceType::paginate(2);
+        $service_types = ServiceType::paginate(6);
         return view('admin.service-type.index',compact('service_types'));
     }
 

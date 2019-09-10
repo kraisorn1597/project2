@@ -16,7 +16,7 @@ class ArticlesCategoryController extends Controller
     }
     public function index()
     {
-        $article_categories = ArticlesCategory::paginate(2);
+        $article_categories = ArticlesCategory::paginate(6);
         return view('admin.articles-category.index',compact('article_categories'));
     }
 
@@ -35,8 +35,8 @@ class ArticlesCategoryController extends Controller
 
     public function edit($id)
     {
-        $data = ArticlesCategory::find($id);
-        return view('admin.articles-category.edit',compact('data'));
+        $service_type = ArticlesCategory::find($id);
+        return view('admin.articles-category.edit',compact('service_type'));
     }
 
     public function update(ArticlesCategoryEditRequest $request, $id)

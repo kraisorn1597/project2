@@ -42,7 +42,7 @@ class UserController extends Controller
             $users = User::query()
                 ->where('first_name','LIKE','%'.$search.'%')
 //                ->where('last_name','LIKE','%'.$search.'%')
-                ->paginate(2);
+                ->paginate(6);
             $users->appends($request->only('search'));
             return view('admin.users.index',compact('users','search'));
         }

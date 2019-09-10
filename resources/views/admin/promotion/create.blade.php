@@ -23,13 +23,13 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>ระยะเวลาโปรโมชั่น <span style="color: red">*</span></label>
-                        วันเริ่ม : <input type="text" name="start_date" id="start_date">
+                        วันเริ่ม : <input type="text" name="start_date" id="start_date" value="{{ old('start_date') }}">
                         @if ($errors->has('start_date'))
                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('start_date') }}</strong>
                                         </span>
                         @endif
-                        วันสิ้นสุด : <input type="text" name="end_date" id="end_date">
+                        วันสิ้นสุด : <input type="text" name="end_date" id="end_date" value="{{ old('end_date') }}">
                         @if ($errors->has('end_date'))
                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('end_date') }}</strong>
@@ -43,7 +43,7 @@
             <div class="form-group ">
                 <label>ชื่อโปรโมชั่น <span style="color:red">*</span></label>
                 <input type="text" class="form-control" name="title"
-                       placeholder="ชื่อโปรโมชั่น">
+                       placeholder="ชื่อโปรโมชั่น" value="{{ old('title') }}">
                 @if ($errors->has('title'))
                     <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                         <strong>{{ $errors->first('title') }}</strong>
@@ -53,7 +53,7 @@
             <div class="form-group">
                 <label>ส่วนลด % <span style="color:red">*</span></label>
                 <input type="text" class="form-control col-md-1" name="discount"
-                       placeholder="ส่วนลด">
+                       placeholder="ส่วนลด" value="{{ old('discount') }}">
                 @if ($errors->has('discount'))
                     <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                         <strong>{{ $errors->first('discount') }}</strong>
@@ -64,7 +64,7 @@
                 <label>รายละเอียดโปรโมชั่น <span style="color:red">*</span></label>
                 <textarea class="form-control ckeditor" id="editor" name="description"
                           placeholder="Description"
-                          rows="9"></textarea>
+                          rows="9"{{ old('description') }}>{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                         <strong>{{ $errors->first('description') }}</strong>

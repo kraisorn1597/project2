@@ -19,7 +19,7 @@ class ClothesController extends Controller
     public function index()
     {
         $search = "";
-        $clothes = Clothes::paginate(2);
+        $clothes = Clothes::paginate(6);
         return view('admin.clothes.index', compact('clothes','search'));
     }
 
@@ -29,14 +29,14 @@ class ClothesController extends Controller
         if ($search == ""){
             $clothes = Clothes::query()
                 ->where('id', '!=', 1)
-                ->paginate(2);
+                ->paginate(6);
             return view('admin.clothes.index',['clothes' => $clothes,'search' => $search]);
         }
         else{
             $clothes = Clothes::query()
                 ->where('id', '!=', 1)
                 ->where('name','LIKE','%'.$search.'%')
-                ->paginate(2);
+                ->paginate(6);
             $clothes->appends($request->only('search'));
             return view('admin.clothes.index',compact('clothes','search'));
         }

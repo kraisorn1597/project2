@@ -65,7 +65,7 @@
                         @foreach($clothes as $data)
                             <tr>
                                 <td scope="row">{{ $data->id }}</td>
-                                <td>{{ $data->name}}</td>
+                                <td>{{ $data->name."(".$data->service_type->name.")"}}</td>
                                 <td>{{ $data->price}}</td>
                                 <td class="row">
                                     <form method="post" action="{{ route('admin.clothes.delete', $data->id) }}">

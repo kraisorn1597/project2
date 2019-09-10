@@ -23,8 +23,8 @@ class Promotion extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function articles_category()
-    {
-        return $this->belongsTo(ArticlesCategory::class);
-    }
+//    public function articles_category()
+//    {
+//        return $this->belongsTo(ArticlesCategory::class);
+//    }
 }

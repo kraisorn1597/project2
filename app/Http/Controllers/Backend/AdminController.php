@@ -52,7 +52,7 @@ class AdminController extends Controller
         $admin->tel = $request['tel'];
         $admin->birthday = $request['birthday'];
         $admin->address = $request['address'];
-        $admin->salary = $request['salary'];
+//        $admin->salary = $request['salary'];
 //        $admin->role_id = $request['role_id'];
 
         if (isset($request['image'])){

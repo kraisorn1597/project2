@@ -20,7 +20,7 @@ class PromotionController extends Controller
 
     public function index()
     {
-        $promotions = Promotion::paginate(2);
+        $promotions = Promotion::paginate(6);
         return view('admin.promotion.index', compact('promotions'));
     }
 
@@ -32,9 +32,9 @@ class PromotionController extends Controller
 
     public function store(PromotionRequest $request)
     {
-        $promotion = new Promotion;
+//        dd($request->all());
+        $promotion = new Promotion();
         $promotion->admin_id = Auth::user()->id;
-//        $promotion->articles_category_id = $request->articles_category_id;
         $promotion->title = $request->title;
         $promotion->discount = $request->discount;
         $promotion->description = $request->description;

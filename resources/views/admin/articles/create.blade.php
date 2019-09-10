@@ -29,7 +29,7 @@
                                 <div class="form-group ">
                                     <label>ชื่อข่าวสาร <span style="color:red">*</span></label>
                                     <input type="text" class="form-control" name="title"
-                                           placeholder="Title">
+                                           placeholder="Title" value="{{ old('title') }}">
                                     @if ($errors->has('title'))
                                         <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('title') }}</strong>
@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label>รายละเอียดสั้น <span style="color:red">*</span></label>
                                     <input type="text" class="form-control" id="editor" name="short_description"
-                                              placeholder="Short Description">
+                                              placeholder="Short Description" value="{{ old('short_description') }}">
                                     @if ($errors->has('short_description'))
                                         <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('short_description') }}</strong>
@@ -50,7 +50,7 @@
                                     <label>รายละเอียด <span style="color:red">*</span></label>
                                     <textarea class="form-control ckeditor" id="editor" name="description"
                                               placeholder="Short Description"
-                                              rows="4"></textarea>
+                                              rows="4">{{ old('description') }}</textarea>
                                     @if ($errors->has('description'))
                                         <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('description') }}</strong>

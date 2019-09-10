@@ -25,7 +25,7 @@ class PromotionRequest extends FormRequest
     {
         $rules = [
             'title' => 'required|string|max:100',
-            'discount' => 'required|string|max:255',
+            'discount' => 'required|integer|max:255',
             'description' => 'required|string|max:255',
             'start_date' => 'required',
             'end_date' => 'required',
@@ -38,6 +38,7 @@ class PromotionRequest extends FormRequest
         return [
             'title.required' => 'กรุณาเเขียนชื่อโปรโมชั่น',
             'discount.required' => 'กรุณาใส่ส่วนลด',
+            'discount.integer' => 'ใส่ได้เฉพาะตัวเลขเท่านั้น',
             'description.required'  => 'กรุณาเขียนรายละเอียด',
             'start_date.required'  => 'กรุณาใส่วันเริ่ม',
             'end_date.required'  => 'กรุณาใส่วันสิ้นสุด',
