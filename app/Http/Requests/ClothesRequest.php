@@ -26,7 +26,7 @@ class ClothesRequest extends FormRequest
         return [
             'service_type_id' => 'required|string|max:50',
             'name' => 'required|string|max:50',
-            'price' => 'required|numeric|max:100|between:,99999.99',
+            'price' => 'required|numeric|max:1000|between:,99999.99',
 //            'email' => 'required|string|email|max:255|unique:users'
         ];
     }

@@ -73,6 +73,13 @@
     font-family: 'Prompt', sans-serif;
     font-size: 22px;
 }
+.topic-black-20 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+}
+
 .topic-black-size60 {
     text-align: left;
     color: black;
@@ -101,10 +108,35 @@
     color: white;
     font-family: 'Prompt', sans-serif;
 }
+/* Frontend Service-Charge
+
+ */
+.text-white-25 {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 35px;
+}
+.img-resize {
+    width: 60%;
+    height: 5%;
+    overflow: hidden;
+    /*text-align: center;*/
+}
+
+
+/* End Frontend Service-Charge
+
+ */
+
 .flex-center {
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.topic-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
 }
 
 .login {

@@ -18,8 +18,8 @@ class CreateArticlesTable extends Migration
             $table->integer('admin_id');
             $table->integer('articles_category_id');
             $table->string('title');
-            $table->text('description');
             $table->text('short_description');
+            $table->text('description');
             $table->string('image');
             $table->timestamps();
         });

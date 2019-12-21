@@ -56,6 +56,13 @@ Route::group([
         Route::get('/', 'Frontend\ContactUsController@index')->name('index');
     });
 
+    Route::group([
+        'prefix' => 'service-charge',
+        'as' => 'service-charge.'
+    ], function (){
+        Route::get('/', 'Frontend\ServiceChargeController@index')->name('index');
+    });
+
 //    Route::group([
 //        'prefix' => 'promotion',
 //        'as' => 'promotion.'
@@ -72,6 +79,13 @@ Route::group([
     Route::get('/profile', 'BackendUser\BackendUserController@profile')->name('profile');
     Route::get('/edit', 'BackendUser\BackendUserController@edit')->name('edit');
     Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
+
+    Route::group([
+        'prefix' => 'order',
+        'as' => 'order.'
+    ], function (){
+        Route::get('/', 'BackendUser\OrderController@index')->name('index');
+    });
 });
 
 

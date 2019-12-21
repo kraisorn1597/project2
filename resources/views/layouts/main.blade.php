@@ -7,8 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('newbiz/img/laundry1.png') }}" rel="icon">
+    <title> @yield('title') </title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <!-- Scripts -->
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}

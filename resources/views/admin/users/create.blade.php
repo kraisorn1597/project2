@@ -47,7 +47,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="password" class="col-form-label text-md-right">{{ __('รหัส :') }}</label>
+                                    <label for="password" class="col-form-label text-md-right">{{ __('รหัสผ่าน :') }}</label>
 
                                     <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            name="password"  autofocus>

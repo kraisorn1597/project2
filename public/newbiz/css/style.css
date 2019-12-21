@@ -178,6 +178,11 @@ h6 {
   padding: 200px 0 120px 0;
 }
 
+#intro h3{
+  color: white;
+  font-family: 'Prompt', sans-serif;
+}
+
 #intro .intro-img {
   width: 50%;
   float: right;

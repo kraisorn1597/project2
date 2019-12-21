@@ -20,6 +20,7 @@
         <!-- Bootstrap CSS File -->
         <link href="{{ asset('newbiz/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <!-- Libraries CSS Files -->
         <link href="{{ asset('newbiz/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">

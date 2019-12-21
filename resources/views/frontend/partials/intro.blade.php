@@ -97,7 +97,7 @@
                 <div class="col">
                     <div class="card-body">
                         @foreach($articles as $article)
-                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="topic-black">[{{ $article->articles_category->name."] ".$article->short_description}}</a><br>
+                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="topic-black-20">[{{ $article->articles_category->name."] ".$article->short_description}}</a><br>
                         @endforeach
                     </div>
                 </div>

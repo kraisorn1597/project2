@@ -75,6 +75,8 @@ class RegisterController extends Controller
             'username.required' => 'กรุณากรอกชื่อผู้ใช้',
             'username.unique' => 'ชื่อผู้ใช้นี้มีอยู่ในระบบแล้ว',
             'password.required' => 'กรุณากรอกรหัสผ่าน',
+            'password.min' => 'ใส่รหัสผ่าน 6 ตัวขึ้นไป',
+            'password.confirmed' => 'รหัสผ่านไม่ตรงกัน',
             'email.required' => 'กรุณากรอกอีเมล',
             'email.unique' => 'อีเมลนี้มีอยู่ในระบบแล้ว',
             'first_name.required'  => 'กรุณากรอกชื่อ',
